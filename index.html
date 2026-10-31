@@ -23,7 +23,7 @@
 </head>
 <body>
 
-  <!-- Navegación Principales -->
+  <!-- Navegación Principal -->
   <header class="navbar">
     <div class="nav-container">
       <a href="#" class="logo-brand">
@@ -42,12 +42,12 @@
       </nav>
 
       <div class="header-actions">
-        <button id="btnMinisterios" class="btn-ministerios">
+        <button id="btnMinisterios" class="btn-ministerios" aria-label="Abrir Ministerios">
           <i class="fa-solid fa-layer-group"></i>
           <span>Ministerios</span>
         </button>
 
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" aria-label="Menú móvil">
           <span></span>
           <span></span>
           <span></span>
@@ -101,16 +101,16 @@
           <p>Un tiempo especial de adoración, enseñanza de la Palabra y comunión para toda la familia.</p>
         </div>
         <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
-          <h3>Jóvenes</h3>
+          <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Jóvenes (Diseño Original)</h3>
           <p class="card-time"><i class="fa-regular fa-clock"></i> Sábados: 20:00 hs</p>
-          <p>Encuentros dinámicos con música, mensajes actuales y actividades de integración.</p>
+          <p>Encuentros dinámicos con música, mensajes actuales y actividades de integración para jóvenes.</p>
         </div>
         <div class="card">
           <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
-          <h3>Grupos de Conexión</h3>
+          <h3>Grupos de Vida</h3>
           <p class="card-time"><i class="fa-regular fa-clock"></i> Semanal (En casas)</p>
-          <p>Espacios reducidos para entablar amistades profundas, orar y crecer juntos.</p>
+          <p>Espacios reducidos para entablar amistades profundas, orar y crecer juntos durante la semana.</p>
         </div>
       </div>
     </div>
@@ -186,36 +186,65 @@
     </div>
   </footer>
 
-  <!-- MODAL: MINISTERIOS -->
+  <!-- MODAL: MINISTERIOS (8 Ministerios Desarrollados) -->
   <div class="modal-overlay" id="modalMinisterios">
-    <div class="modal-card">
-      <button class="modal-close" id="closeMinisterios">&times;</button>
+    <div class="modal-card modal-large">
+      <button class="modal-close" id="closeMinisterios" aria-label="Cerrar modal">&times;</button>
       <div class="modal-header">
         <i class="fa-solid fa-shapes modal-icon"></i>
         <h3>Nuestros Ministerios</h3>
-        <p>Conocé las áreas de servicio y comunidad de la iglesia</p>
+        <p>Espacios diseñados para el crecimiento, la comunión y el servicio</p>
       </div>
       <div class="ministerios-grid">
+        
+        <div class="ministerio-item">
+          <i class="fa-solid fa-book-open-reader"></i>
+          <h4>Estudio Bíblico</h4>
+          <p>Profundizamos en las Escrituras para conocer la verdad, doctrina y aplicación práctica para la vida diaria.</p>
+        </div>
+
+        <div class="ministerio-item">
+          <i class="fa-solid fa-hands-praying"></i>
+          <h4>Casa de Oración</h4>
+          <p>Un espacio dedicado a interceder por las necesidades de la iglesia, la ciudad y las familias en unidad.</p>
+        </div>
+
+        <div class="ministerio-item">
+          <i class="fa-solid fa-fire-flame-curved"></i>
+          <h4>Diseño Original (Jóvenes)</h4>
+          <p>Movimiento de jóvenes conectados con su propósito, disfrutando de alabanza, amistad y dinamismo.</p>
+        </div>
+
         <div class="ministerio-item">
           <i class="fa-solid fa-child-reaching"></i>
           <h4>Refugio Kids</h4>
-          <p>Enseñanza dinámica y actividades para niños de todas las edades.</p>
+          <p>Enseñanza bíblica creativa, juegos y dinámicas adaptadas para que los más chicos vivan su fe.</p>
         </div>
+
         <div class="ministerio-item">
-          <i class="fa-solid fa-bolt"></i>
-          <h4>Jóvenes & Adolescentes</h4>
-          <p>Reuniones, talleres y campamentos para las nuevas generaciones.</p>
+          <i class="fa-solid fa-church"></i>
+          <h4>Reuniones Generales</h4>
+          <p>Nuestros encuentros dominicales principales de adoración congregacional, alabanza y mensaje central.</p>
         </div>
+
         <div class="ministerio-item">
-          <i class="fa-solid fa-music"></i>
-          <h4>Alabanza & Adoración</h4>
-          <p>Equipo técnico y musical dedicado a liderar los tiempos de adoración.</p>
+          <i class="fa-solid fa-seedling"></i>
+          <h4>Grupo de Preas</h4>
+          <p>Acompañamiento y mentoría especial para preadolescentes en su transición hacia la juventud.</p>
         </div>
+
         <div class="ministerio-item">
-          <i class="fa-solid fa-hand-holding-heart"></i>
-          <h4>Acción Social</h4>
-          <p>Asistencia comunitaria, merenderos y ayuda a familias necesitadas.</p>
+          <i class="fa-solid fa-hands-holding-child"></i>
+          <h4>Adultos Mayores</h4>
+          <p>Un espacio de contención, valor, compañas sabias y atención afectiva para nuestros mayores.</p>
         </div>
+
+        <div class="ministerio-item">
+          <i class="fa-solid fa-house-chimney-user"></i>
+          <h4>Grupos de Vida</h4>
+          <p>Comunidades hogareñas semanales para compartir la fe de cerca, apoyarnos y orar unos por otros.</p>
+        </div>
+
       </div>
     </div>
   </div>
@@ -223,7 +252,7 @@
   <!-- MODAL: ADMIN / AGREGAR ACTIVIDAD -->
   <div class="modal-overlay" id="modalAdmin">
     <div class="modal-card">
-      <button class="modal-close" id="closeAdmin">&times;</button>
+      <button class="modal-close" id="closeAdmin" aria-label="Cerrar modal">&times;</button>
 
       <!-- Paso 1: Auth -->
       <div id="adminAuthSection">
