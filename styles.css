@@ -367,6 +367,7 @@ body {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .filter-btn {
@@ -504,12 +505,16 @@ body {
   border-radius: var(--radius);
   padding: 2.5rem;
   width: 90%;
-  max-width: 650px;
+  max-width: 550px;
   position: relative;
   transform: translateY(20px);
   transition: var(--transition);
   max-height: 90vh;
   overflow-y: auto;
+}
+
+.modal-card.modal-large {
+  max-width: 850px;
 }
 
 .modal-overlay.active .modal-card {
@@ -540,31 +545,41 @@ body {
 
 .ministerios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
 }
 
 .ministerio-item {
   background: var(--light-bg);
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 12px;
-  text-align: center;
+  text-align: left;
+  border: 1px solid #f1f5f9;
+  transition: var(--transition);
+}
+
+.ministerio-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+  border-color: #e0e7ff;
 }
 
 .ministerio-item i {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: var(--accent-color);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .ministerio-item h4 {
   color: var(--primary-color);
-  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
 }
 
 .ministerio-item p {
   font-size: 0.85rem;
   color: var(--text-muted);
+  line-height: 1.4;
 }
 
 /* Footer */
