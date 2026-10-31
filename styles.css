@@ -4,12 +4,13 @@
   --accent-color: #6366f1;
   --accent-hover: #4f46e5;
   --secondary-color: #f43f5e;
+  --whatsapp-color: #25d366;
+  --whatsapp-hover: #1da851;
   --text-main: #334155;
   --text-muted: #64748b;
   --light-bg: #f8fafc;
   --white: #ffffff;
   --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.2);
   --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
   --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.1);
   --shadow-lg: 0 20px 30px -10px rgba(0,0,0,0.15);
@@ -196,6 +197,7 @@ body {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Botones */
@@ -207,7 +209,9 @@ body {
   border: none;
   cursor: pointer;
   transition: var(--transition);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.95rem;
 }
 
@@ -221,18 +225,19 @@ body {
   transform: translateY(-2px);
 }
 
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
+.btn-whatsapp {
+  background-color: var(--whatsapp-color);
   color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
+.btn-whatsapp:hover {
+  background-color: var(--whatsapp-hover);
+  transform: translateY(-2px);
 }
 
 .btn-block {
   width: 100%;
+  justify-content: center;
 }
 
 /* Secciones Generales */
@@ -299,6 +304,8 @@ body {
   box-shadow: var(--shadow-sm);
   border: 1px solid #f1f5f9;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -330,6 +337,21 @@ body {
   font-weight: 700;
   font-size: 0.9rem;
   margin-bottom: 1rem;
+}
+
+.card-link {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card-link:hover {
+  text-decoration: underline;
 }
 
 /* Agenda / Calendario */
@@ -436,10 +458,145 @@ body {
   color: var(--text-main);
 }
 
-/* Formulario Contacto */
+/* Ubicación & Mapa */
+.location-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.location-info {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.location-info h3 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.location-info h3 i {
+  color: var(--accent-color);
+}
+
+.location-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid #e2e8f0;
+}
+
+.map-container iframe {
+  display: block;
+}
+
+/* Contacto & Wrapper */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.contact-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.info-card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #f1f5f9;
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.info-card i {
+  font-size: 1.8rem;
+}
+
+.icon-wa { color: var(--whatsapp-color); }
+.icon-mail { color: var(--accent-color); }
+
+.info-card h4 {
+  font-size: 1.05rem;
+  color: var(--primary-color);
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.social-links-box {
+  background: var(--white);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #f1f5f9;
+}
+
+.social-links-box h4 {
+  font-size: 1.05rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.social-btn.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-btn.yt { background: #ff0000; }
+.social-btn.fb { background: #1877f2; }
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
 .contact-form {
-  max-width: 600px;
-  margin: 0 auto;
   background: var(--white);
   padding: 2.5rem;
   border-radius: var(--radius);
@@ -514,7 +671,7 @@ body {
 }
 
 .modal-card.modal-large {
-  max-width: 850px;
+  max-width: 900px;
 }
 
 .modal-overlay.active .modal-card {
@@ -545,7 +702,7 @@ body {
 
 .ministerios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.2rem;
 }
 
@@ -556,6 +713,8 @@ body {
   text-align: left;
   border: 1px solid #f1f5f9;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 .ministerio-item:hover {
@@ -580,6 +739,22 @@ body {
   font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+
+.min-link {
+  margin-top: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.min-link:hover {
+  text-decoration: underline;
 }
 
 /* Footer */
@@ -594,7 +769,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .footer-brand {
@@ -607,6 +782,21 @@ body {
 
 .footer-logo {
   height: 30px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-socials a {
+  color: #94a3b8;
+  font-size: 1.3rem;
+  transition: var(--transition);
+}
+
+.footer-socials a:hover {
+  color: var(--white);
 }
 
 /* Animaciones */
@@ -622,6 +812,12 @@ body {
 }
 
 /* Responsividad */
+@media (max-width: 900px) {
+  .contact-wrapper, .location-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
