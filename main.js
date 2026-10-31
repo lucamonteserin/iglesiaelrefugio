@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Menú Hamburgesa Móvil
+  // 1. Menú Hamburguesa Móvil
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
 
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let initialEvents = [
     {
       id: 1,
-      title: "Reunión Especial de Jóvenes",
+      title: "Noche de Jóvenes - Diseño Original",
       date: "2026-11-07",
       time: "20:00",
       category: "Jóvenes",
@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 2,
-      title: "Taller de Liderazgo",
+      title: "Taller de Estudio Bíblico",
       date: "2026-11-12",
       time: "19:30",
       category: "Capacitaciones",
-      description: "Capacitación práctica para servidores y líderes de área."
+      description: "Profundizando en los fundamentos de las Escrituras."
     },
     {
       id: 3,
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date: "2026-11-15",
       time: "10:30",
       category: "Niños",
-      description: "Juegos, obritas de teatro y aprendizaje para los más chicos."
+      description: "Juegos, dinámicas y enseñanza para los más chicos."
     }
   ];
 
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const pass = document.getElementById('adminPassword').value;
     
-    // Contraseña de prueba simple: admin123
+    // Contraseña por defecto: admin123
     if (pass === 'admin123') {
       adminAuthSection.style.display = 'none';
       adminFormSection.style.display = 'block';
