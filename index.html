@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Refugio | Iglesia Cristiana</title>
+  <title>El Refugio | Iglesia & Comunidad</title>
 
   <!-- Favicons y Manifest -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -28,7 +28,6 @@
     <div class="nav-container">
       <a href="#" class="logo-brand">
         <img src="logo.svg" alt="El Refugio Logo" class="brand-logo-img" onerror="this.style.display='none'">
-        <span class="brand-name">El Refugio</span>
       </a>
 
       <nav class="nav-menu">
@@ -37,6 +36,7 @@
           <li><a href="#nosotros" class="nav-item">Nosotros</a></li>
           <li><a href="#reuniones" class="nav-item">Reuniones</a></li>
           <li><a href="#actividades" class="nav-item">Calendario</a></li>
+          <li><a href="#ubicacion" class="nav-item">Ubicación</a></li>
           <li><a href="#contacto" class="nav-item">Contacto</a></li>
         </ul>
       </nav>
@@ -62,10 +62,12 @@
     <div class="hero-content">
       <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> Bienvenidos a Casa</span>
       <h1>Un lugar de encuentro, fe y comunidad</h1>
-      <p>Descubrí un espacio para crecer espiritualmente, conectar en familia y transformar nuestro entorno.</p>
+      <p>Descubrí un espacio para crecer espiritualmente, conectar en familia y transformar nuestro entorno en Rafaela.</p>
       <div class="hero-buttons">
         <a href="#reuniones" class="btn btn-primary">Horarios de Reuniones</a>
-        <a href="#actividades" class="btn btn-secondary">Ver Agenda</a>
+        <a href="https://wa.me/5493492653016" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Hablanos por WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -101,10 +103,11 @@
           <p>Un tiempo especial de adoración, enseñanza de la Palabra y comunión para toda la familia.</p>
         </div>
         <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div class="card-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
           <h3>Jóvenes (Diseño Original)</h3>
           <p class="card-time"><i class="fa-regular fa-clock"></i> Sábados: 20:00 hs</p>
           <p>Encuentros dinámicos con música, mensajes actuales y actividades de integración para jóvenes.</p>
+          <a href="https://instagram.com/originaldesignok" target="_blank" rel="noopener noreferrer" class="card-link"><i class="fa-brands fa-instagram"></i> @originaldesignok</a>
         </div>
         <div class="card">
           <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
@@ -136,7 +139,9 @@
           <button class="filter-btn active" data-filter="todos">Todos</button>
           <button class="filter-btn" data-filter="General">General</button>
           <button class="filter-btn" data-filter="Jóvenes">Jóvenes</button>
+          <button class="filter-btn" data-filter="Adolescentes">Adolescentes</button>
           <button class="filter-btn" data-filter="Niños">Niños</button>
+          <button class="filter-btn" data-filter="Mujeres">Mujeres</button>
           <button class="filter-btn" data-filter="Capacitaciones">Capacitaciones</button>
         </div>
       </div>
@@ -148,30 +153,92 @@
     </div>
   </section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="section bg-light">
+  <!-- Sección Ubicación & Mapa -->
+  <section id="ubicacion" class="section bg-light">
+    <div class="container fade-in-up">
+      <div class="section-header">
+        <span class="sub-title">Encuéntranos</span>
+        <h2>¿Dónde Estamos?</h2>
+        <div class="title-bar"></div>
+      </div>
+
+      <div class="location-wrapper">
+        <div class="location-info">
+          <h3><i class="fa-solid fa-location-dot"></i> Nuestra Dirección</h3>
+          <p>Te esperamos para compartir juntos nuestras reuniones y actividades en Rafaela, Santa Fe.</p>
+          <a href="https://maps.app.goo.gl/HgKWCjQbd4QfRVzt6" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-diamond-turn-right"></i> Abrir en Google Maps
+          </a>
+        </div>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3411.385317765954!2d-61.4883444!3d-31.2377317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95caae4b54e7492d%3A0x8e8334bc6e8b60ab!2sEl%20Refugio!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+            width="100%" 
+            height="350" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto & Redes -->
+  <section id="contacto" class="section">
     <div class="container fade-in-up">
       <div class="section-header">
         <span class="sub-title">Escribinos</span>
-        <h2>Ponte en Contacto</h2>
+        <h2>Contacto & Redes Sociales</h2>
         <div class="title-bar"></div>
       </div>
-      
-      <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label for="nombre"><i class="fa-regular fa-user"></i> Nombre completo</label>
-          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellido">
+
+      <div class="contact-wrapper">
+        <!-- Canales Directos -->
+        <div class="contact-info-cards">
+          <a href="https://wa.me/5493492653016" target="_blank" rel="noopener noreferrer" class="info-card">
+            <i class="fa-brands fa-whatsapp icon-wa"></i>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>+54 9 3492 65-3016</p>
+            </div>
+          </a>
+          <a href="mailto:elrefugio.rafaela@gmail.com" class="info-card">
+            <i class="fa-regular fa-envelope icon-mail"></i>
+            <div>
+              <h4>Correo Electrónico</h4>
+              <p>elrefugio.rafaela@gmail.com</p>
+            </div>
+          </a>
+          <div class="social-links-box">
+            <h4>Seguinos en nuestras redes</h4>
+            <div class="social-buttons">
+              <a href="https://www.instagram.com/elrefugiorafaela" target="_blank" rel="noopener noreferrer" class="social-btn ig"><i class="fa-brands fa-instagram"></i> Instagram</a>
+              <a href="https://www.youtube.com/@elrefugiorafaela" target="_blank" rel="noopener noreferrer" class="social-btn yt"><i class="fa-brands fa-youtube"></i> YouTube</a>
+              <a href="https://www.facebook.com/elrefugiorafaela" target="_blank" rel="noopener noreferrer" class="social-btn fb"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="email"><i class="fa-regular fa-envelope"></i> Correo electrónico</label>
-          <input type="email" id="email" name="email" required placeholder="tu@email.com">
-        </div>
-        <div class="form-group">
-          <label for="mensaje"><i class="fa-regular fa-comment"></i> Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribí tu consulta aquí..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
-      </form>
+
+        <!-- Formulario -->
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="nombre"><i class="fa-regular fa-user"></i> Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellido">
+          </div>
+          <div class="form-group">
+            <label for="email"><i class="fa-regular fa-envelope"></i> Correo electrónico</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="mensaje"><i class="fa-regular fa-comment"></i> Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribí tu consulta aquí..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
+        </form>
+      </div>
+
     </div>
   </section>
 
@@ -180,13 +247,19 @@
     <div class="container footer-content">
       <div class="footer-brand">
         <img src="logo.svg" alt="Logo" class="footer-logo" onerror="this.style.display='none'">
-        <span>El Refugio</span>
+        <span>El Refugio Rafaela</span>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/elrefugiorafaela" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@elrefugiorafaela" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/elrefugiorafaela" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://wa.me/5493492653016" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
       <p>&copy; 2026 El Refugio. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- MODAL: MINISTERIOS (8 Ministerios Desarrollados) -->
+  <!-- MODAL: MINISTERIOS -->
   <div class="modal-overlay" id="modalMinisterios">
     <div class="modal-card modal-large">
       <button class="modal-close" id="closeMinisterios" aria-label="Cerrar modal">&times;</button>
@@ -207,12 +280,28 @@
           <i class="fa-solid fa-hands-praying"></i>
           <h4>Casa de Oración</h4>
           <p>Un espacio dedicado a interceder por las necesidades de la iglesia, la ciudad y las familias en unidad.</p>
+          <a href="https://instagram.com/cdo.raf" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @cdo.raf</a>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-fire-flame-curved"></i>
           <h4>Diseño Original (Jóvenes)</h4>
           <p>Movimiento de jóvenes conectados con su propósito, disfrutando de alabanza, amistad y dinamismo.</p>
+          <a href="https://instagram.com/originaldesignok" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @originaldesignok</a>
+        </div>
+
+        <div class="ministerio-item">
+          <i class="fa-solid fa-user-group"></i>
+          <h4>Adolescentes</h4>
+          <p>Espacio propio para chicos en etapa escolar secundaria, compartiendo valores, charlas y diversión.</p>
+          <a href="https://instagram.com/adosdelrefugio" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @adosdelrefugio</a>
+        </div>
+
+        <div class="ministerio-item">
+          <i class="fa-solid fa-person-breastfeeding"></i>
+          <h4>Mujeres (Re.Creadas)</h4>
+          <p>Encuentros de edificación, talleres y comunión para el desarrollo integral de las mujeres.</p>
+          <a href="https://instagram.com/re.creadas" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @re.creadas</a>
         </div>
 
         <div class="ministerio-item">
@@ -230,13 +319,13 @@
         <div class="ministerio-item">
           <i class="fa-solid fa-seedling"></i>
           <h4>Grupo de Preas</h4>
-          <p>Acompañamiento y mentoría especial para preadolescentes en su transición hacia la juventud.</p>
+          <p>Acompañamiento y mentoría especial para preadolescentes en su transición.</p>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-hands-holding-child"></i>
           <h4>Adultos Mayores</h4>
-          <p>Un espacio de contención, valor, compañas sabias y atención afectiva para nuestros mayores.</p>
+          <p>Un espacio de contención, valor, compañía sabia y atención afectiva para nuestros mayores.</p>
         </div>
 
         <div class="ministerio-item">
@@ -279,7 +368,7 @@
         <form id="addEventForm" class="modal-form">
           <div class="form-group">
             <label for="eventTitle">Título del evento</label>
-            <input type="text" id="eventTitle" required placeholder="Ej. Noche de Alabanza">
+            <input type="text" id="eventTitle" required placeholder="Ej. Encuentro Re.Creadas">
           </div>
           <div class="form-group-row">
             <div class="form-group">
@@ -296,7 +385,9 @@
             <select id="eventCategory" required>
               <option value="General">General</option>
               <option value="Jóvenes">Jóvenes</option>
+              <option value="Adolescentes">Adolescentes</option>
               <option value="Niños">Niños</option>
+              <option value="Mujeres">Mujeres</option>
               <option value="Capacitaciones">Capacitaciones</option>
             </select>
           </div>
