@@ -3,107 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Refugio</title>
+  <title>El Refugio | Iglesia & Comunidad</title>
+
+  <!-- Favicons y Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Fuentes e Íconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Encabezado / Navegación -->
+  <!-- Navegación Principales -->
   <header class="navbar">
-    <div class="logo">
-      <a href="#">El Refugio</a>
-    </div>
-    <nav>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#reuniones">Reuniones</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav-container">
+      <a href="#" class="logo-brand">
+        <img src="logo.svg" alt="El Refugio Logo" class="brand-logo-img" onerror="this.style.display='none'">
+        <span class="brand-name">El Refugio</span>
+      </a>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#inicio" class="nav-item active">Inicio</a></li>
+          <li><a href="#nosotros" class="nav-item">Nosotros</a></li>
+          <li><a href="#reuniones" class="nav-item">Reuniones</a></li>
+          <li><a href="#actividades" class="nav-item">Calendario</a></li>
+          <li><a href="#contacto" class="nav-item">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btnMinisterios" class="btn-ministerios">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Ministerios</span>
+        </button>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Sección Hero -->
+  <!-- Hero Section -->
   <section id="inicio" class="hero">
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Bienvenidos a El Refugio</h1>
-      <p>Un lugar de encuentro, fe y comunidad.</p>
-      <a href="#reuniones" class="btn">Conocé nuestros horarios</a>
+      <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> Bienvenidos a Casa</span>
+      <h1>Un lugar de encuentro, fe y comunidad</h1>
+      <p>Descubrí un espacio para crecer espiritualmente, conectar en familia y transformar nuestro entorno.</p>
+      <div class="hero-buttons">
+        <a href="#reuniones" class="btn btn-primary">Horarios de Reuniones</a>
+        <a href="#actividades" class="btn btn-secondary">Ver Agenda</a>
+      </div>
     </div>
   </section>
 
-  <!-- Sección Nosotros -->
+  <!-- Nosotros -->
   <section id="nosotros" class="section">
-    <div class="container">
-      <h2>Sobre Nosotros</h2>
-      <p>
-        Somos una comunidad comprometida con compartir un mensaje de esperanza y fe. 
-        En <strong>El Refugio</strong> buscamos brindar un espacio donde cada persona pueda crecer espiritualmente y conectarse con los demás.
+    <div class="container fade-in-up">
+      <div class="section-header">
+        <span class="sub-title">Conocenos</span>
+        <h2>Sobre El Refugio</h2>
+        <div class="title-bar"></div>
+      </div>
+      <p class="section-desc">
+        Somos una comunidad viva y apasionada por compartir un mensaje de fe, esperanza y amor. 
+        En <strong>El Refugio</strong> nos enfocamos en brindar un entorno donde cada persona y familia pueda desarrollarse y acompañarse mutuamente.
       </p>
     </div>
   </section>
 
-  <!-- Sección Reuniones -->
+  <!-- Reuniones -->
   <section id="reuniones" class="section bg-light">
-    <div class="container">
-      <h2>Nuestras Reuniones</h2>
+    <div class="container fade-in-up">
+      <div class="section-header">
+        <span class="sub-title">Nuestros Horarios</span>
+        <h2>Reuniones Principales</h2>
+        <div class="title-bar"></div>
+      </div>
       <div class="cards-grid">
         <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-church"></i></div>
           <h3>Reunión General</h3>
-          <p><strong>Domingos:</strong> 10:00 hs y 18:00 hs</p>
-          <p>Un espacio de adoración, enseñanza y comunión para toda la familia.</p>
+          <p class="card-time"><i class="fa-regular fa-clock"></i> Domingos: 10:00 hs & 18:00 hs</p>
+          <p>Un tiempo especial de adoración, enseñanza de la Palabra y comunión para toda la familia.</p>
         </div>
         <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
           <h3>Jóvenes</h3>
-          <p><strong>Sábados:</strong> 20:00 hs</p>
-          <p>Encuentros dinámicos con música, charlas y actividades de integración.</p>
+          <p class="card-time"><i class="fa-regular fa-clock"></i> Sábados: 20:00 hs</p>
+          <p>Encuentros dinámicos con música, mensajes actuales y actividades de integración.</p>
         </div>
         <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
           <h3>Grupos de Conexión</h3>
-          <p><strong>Días de semana:</strong> Consultar horarios</p>
-          <p>Reuniones en casas para profundizar en la fe y acompañarnos día a día.</p>
+          <p class="card-time"><i class="fa-regular fa-clock"></i> Semanal (En casas)</p>
+          <p>Espacios reducidos para entablar amistades profundas, orar y crecer juntos.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección Contacto -->
-  <section id="contacto" class="section">
-    <div class="container">
-      <h2>Contacto</h2>
-      <p>Si querés ponert en contacto con nosotros o hacernos alguna consulta, completá el siguiente formulario:</p>
+  <!-- Calendario de Actividades -->
+  <section id="actividades" class="section">
+    <div class="container fade-in-up">
+      <div class="section-header-flex">
+        <div>
+          <span class="sub-title">Agenda</span>
+          <h2>Calendario de Actividades</h2>
+        </div>
+        <button id="btnAdminLogin" class="btn-admin-trigger">
+          <i class="fa-solid fa-lock"></i> Panel Admin
+        </button>
+      </div>
+      <div class="title-bar"></div>
+
+      <!-- Filtros del Calendario -->
+      <div class="calendar-controls">
+        <div class="category-filters">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="General">General</button>
+          <button class="filter-btn" data-filter="Jóvenes">Jóvenes</button>
+          <button class="filter-btn" data-filter="Niños">Niños</button>
+          <button class="filter-btn" data-filter="Capacitaciones">Capacitaciones</button>
+        </div>
+      </div>
+
+      <!-- Grid de Eventos -->
+      <div class="events-grid" id="eventsContainer">
+        <!-- Generado dinámicamente desde JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section bg-light">
+    <div class="container fade-in-up">
+      <div class="section-header">
+        <span class="sub-title">Escribinos</span>
+        <h2>Ponte en Contacto</h2>
+        <div class="title-bar"></div>
+      </div>
       
       <form class="contact-form" id="contactForm">
         <div class="form-group">
-          <label for="nombre">Nombre completo</label>
-          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+          <label for="nombre"><i class="fa-regular fa-user"></i> Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellido">
         </div>
         <div class="form-group">
-          <label for="email">Correo electrónico</label>
+          <label for="email"><i class="fa-regular fa-envelope"></i> Correo electrónico</label>
           <input type="email" id="email" name="email" required placeholder="tu@email.com">
         </div>
         <div class="form-group">
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribí tu mensaje aquí..."></textarea>
+          <label for="mensaje"><i class="fa-regular fa-comment"></i> Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribí tu consulta aquí..."></textarea>
         </div>
-        <button type="submit" class="btn">Enviar Mensaje</button>
+        <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
       </form>
     </div>
   </section>
 
-  <!-- Pie de página -->
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <p>&copy; El Refugio. Todos los derechos reservados.</p>
-      <p><small>iglesiaelrefugio.com.ar</small></p>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="Logo" class="footer-logo" onerror="this.style.display='none'">
+        <span>El Refugio</span>
+      </div>
+      <p>&copy; 2026 El Refugio. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- MODAL: MINISTERIOS -->
+  <div class="modal-overlay" id="modalMinisterios">
+    <div class="modal-card">
+      <button class="modal-close" id="closeMinisterios">&times;</button>
+      <div class="modal-header">
+        <i class="fa-solid fa-shapes modal-icon"></i>
+        <h3>Nuestros Ministerios</h3>
+        <p>Conocé las áreas de servicio y comunidad de la iglesia</p>
+      </div>
+      <div class="ministerios-grid">
+        <div class="ministerio-item">
+          <i class="fa-solid fa-child-reaching"></i>
+          <h4>Refugio Kids</h4>
+          <p>Enseñanza dinámica y actividades para niños de todas las edades.</p>
+        </div>
+        <div class="ministerio-item">
+          <i class="fa-solid fa-bolt"></i>
+          <h4>Jóvenes & Adolescentes</h4>
+          <p>Reuniones, talleres y campamentos para las nuevas generaciones.</p>
+        </div>
+        <div class="ministerio-item">
+          <i class="fa-solid fa-music"></i>
+          <h4>Alabanza & Adoración</h4>
+          <p>Equipo técnico y musical dedicado a liderar los tiempos de adoración.</p>
+        </div>
+        <div class="ministerio-item">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          <h4>Acción Social</h4>
+          <p>Asistencia comunitaria, merenderos y ayuda a familias necesitadas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADMIN / AGREGAR ACTIVIDAD -->
+  <div class="modal-overlay" id="modalAdmin">
+    <div class="modal-card">
+      <button class="modal-close" id="closeAdmin">&times;</button>
+
+      <!-- Paso 1: Auth -->
+      <div id="adminAuthSection">
+        <div class="modal-header">
+          <i class="fa-solid fa-shield-halved modal-icon"></i>
+          <h3>Acceso Administrador</h3>
+          <p>Ingresá la clave de gestión</p>
+        </div>
+        <form id="adminAuthForm" class="modal-form">
+          <div class="form-group">
+            <input type="password" id="adminPassword" placeholder="Contraseña de Admin (Prueba: admin123)" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+        </form>
+      </div>
+
+      <!-- Paso 2: Formulario de Nueva Actividad -->
+      <div id="adminFormSection" style="display: none;">
+        <div class="modal-header">
+          <i class="fa-solid fa-calendar-plus modal-icon"></i>
+          <h3>Nueva Actividad</h3>
+          <p>Publicá un evento en el calendario de la iglesia</p>
+        </div>
+        <form id="addEventForm" class="modal-form">
+          <div class="form-group">
+            <label for="eventTitle">Título del evento</label>
+            <input type="text" id="eventTitle" required placeholder="Ej. Noche de Alabanza">
+          </div>
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="eventDate">Fecha</label>
+              <input type="date" id="eventDate" required>
+            </div>
+            <div class="form-group">
+              <label for="eventTime">Hora</label>
+              <input type="time" id="eventTime" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="eventCategory">Categoría</label>
+            <select id="eventCategory" required>
+              <option value="General">General</option>
+              <option value="Jóvenes">Jóvenes</option>
+              <option value="Niños">Niños</option>
+              <option value="Capacitaciones">Capacitaciones</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="eventDesc">Descripción</label>
+            <textarea id="eventDesc" rows="3" placeholder="Detalles de la actividad..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Guardar y Publicar</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
