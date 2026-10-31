@@ -50,19 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 2,
-      title: "Taller de Estudio Bíblico",
-      date: "2026-11-12",
-      time: "19:30",
-      category: "Capacitaciones",
-      description: "Profundizando en los fundamentos de las Escrituras."
+      title: "Encuentro Re.Creadas",
+      date: "2026-11-10",
+      time: "19:00",
+      category: "Mujeres",
+      description: "Espacio de edificación, té y taller para mujeres."
     },
     {
       id: 3,
-      title: "Refugio Kids: Día Especial",
-      date: "2026-11-15",
-      time: "10:30",
-      category: "Niños",
-      description: "Juegos, dinámicas y enseñanza para los más chicos."
+      title: "Reunión de Adolescentes",
+      date: "2026-11-14",
+      time: "18:00",
+      category: "Adolescentes",
+      description: "Juegos, charlas y comunión para chicos de secundaria."
     }
   ];
 
