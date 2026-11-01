@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Refugio | Iglesia & Comunidad</title>
+  <title>El Refugio | Iglesia Cristiana</title>
 
   <!-- Favicons y Manifest -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -26,22 +26,27 @@
   <!-- Navegación Principal -->
   <header class="navbar">
     <div class="nav-container">
-      <a href="#" class="logo-brand">
+      <a href="javascript:void(0)" data-scroll="inicio" class="logo-brand">
         <img src="logo.svg" alt="El Refugio Logo" class="brand-logo-img" onerror="this.style.display='none'">
       </a>
 
       <nav class="nav-menu">
         <ul class="nav-links" id="navLinks">
-          <li><a href="#inicio" class="nav-item active">Inicio</a></li>
-          <li><a href="#nosotros" class="nav-item">Nosotros</a></li>
-          <li><a href="#reuniones" class="nav-item">Reuniones</a></li>
-          <li><a href="#actividades" class="nav-item">Calendario</a></li>
-          <li><a href="#ubicacion" class="nav-item">Ubicación</a></li>
-          <li><a href="#contacto" class="nav-item">Contacto</a></li>
+          <li><a href="javascript:void(0)" data-scroll="inicio" class="nav-item active">Inicio</a></li>
+          <li><a href="javascript:void(0)" data-scroll="nosotros" class="nav-item">Nosotros</a></li>
+          <li><a href="javascript:void(0)" data-scroll="reuniones" class="nav-item">Reuniones</a></li>
+          <li><a href="javascript:void(0)" data-scroll="actividades" class="nav-item">Calendario</a></li>
+          <li><a href="javascript:void(0)" data-scroll="ubicacion" class="nav-item">Ubicación</a></li>
+          <li><a href="javascript:void(0)" data-scroll="contacto" class="nav-item">Contacto</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
+        <!-- Botón de Modo Oscuro -->
+        <button id="btnThemeToggle" class="btn-theme-toggle" aria-label="Cambiar Tema">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+
         <button id="btnMinisterios" class="btn-ministerios" aria-label="Abrir Ministerios">
           <i class="fa-solid fa-layer-group"></i>
           <span>Ministerios</span>
@@ -64,7 +69,7 @@
       <h1>Un lugar de encuentro, fe y comunidad</h1>
       <p>Descubrí un espacio para crecer espiritualmente, conectar en familia y transformar nuestro entorno en Rafaela.</p>
       <div class="hero-buttons">
-        <a href="#reuniones" class="btn btn-primary">Horarios de Reuniones</a>
+        <a href="javascript:void(0)" data-scroll="reuniones" class="btn btn-primary">Horarios de Reuniones</a>
         <a href="https://wa.me/5493492653016" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
           <i class="fa-brands fa-whatsapp"></i> Hablanos por WhatsApp
         </a>
@@ -99,7 +104,7 @@
         <div class="card">
           <div class="card-icon"><i class="fa-solid fa-church"></i></div>
           <h3>Reunión General</h3>
-          <p class="card-time"><i class="fa-regular fa-clock"></i> Domingos: 10:00 hs & 18:00 hs</p>
+          <p class="card-time"><i class="fa-regular fa-clock"></i> Sábados: 19:30 hs | Domingos: 10:30 hs & 19:30 hs</p>
           <p>Un tiempo especial de adoración, enseñanza de la Palabra y comunión para toda la familia.</p>
         </div>
         <div class="card">
@@ -324,9 +329,9 @@
         <div class="ministerio-item">
           <i class="fa-solid fa-church"></i>
           <h4>Reuniones Generales</h4>
-          <p>Nuestros encuentros dominicales principales de adoración congregacional, alabanza y mensaje central.</p>
-          <p><strong>Horarios:</strong> Sábados 19:30 hs | Domingos 10:30 hs y 19:30 hs</p>
-          <p><strong>Líder:</strong> Henry Altare (+54 9 3492 65-8189)</p>
+          <p>Nuestros encuentros principales de adoración congregacional, alabanza y mensaje central.</p>
+          <p><strong>Horarios:</strong> Sábados 19:30 hs | Domingos 10:30 hs y 19:30 hs[cite: 2]</p>
+          <p><strong>Líder:</strong> Henry Altare (+54 9 3492 65-8189)[cite: 2]</p>
         </div>
 
         <div class="ministerio-item">
@@ -452,6 +457,66 @@
 
     </div>
   </div>
+
+  <!-- JavaScript para Navegación Limpia y Modo Oscuro -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Navegación limpia sin modificar la URL
+      const scrollTriggers = document.querySelectorAll('[data-scroll]');
+      
+      scrollTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = trigger.getAttribute('data-scroll');
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+
+            // Actualizar clase activa si es item de menú
+            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+            if (trigger.classList.contains('nav-item')) {
+              trigger.classList.add('active');
+            }
+
+            // Cerrar menú móvil si está abierto
+            const navMenu = document.querySelector('.nav-menu');
+            const hamburger = document.getElementById('hamburger');
+            if (navMenu && navMenu.classList.contains('active')) {
+              navMenu.classList.remove('active');
+              hamburger.classList.remove('active');
+            }
+          }
+        });
+      });
+
+      // 2. Control de Modo Oscuro / Claro
+      const themeToggleBtn = document.getElementById('btnThemeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      if (currentTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+
+      themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const isDark = document.body.classList.contains('dark-theme');
+
+        if (isDark) {
+          themeIcon.classList.replace('fa-moon', 'fa-sun');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          themeIcon.classList.replace('fa-sun', 'fa-moon');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+  </script>
 
   <script src="main.js"></script>
 </body>
