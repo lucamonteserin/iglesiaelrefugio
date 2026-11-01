@@ -12,12 +12,14 @@
   --dark-bg: #333333;
   --card-bg: #262626;
   --white: #ffffff;
-  --glass-bg: rgba(51, 51, 51, 0.95);
+  --glass-bg: rgba(51, 51, 51, 0.4);
+  --glass-bg-scrolled: rgba(38, 38, 38, 0.85);
   --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.2);
   --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.3);
-  --shadow-lg: 0 20px 30px -10px rgba(0,0,0,0.4);
+  --shadow-lg: 0 20px 30px -10px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 20px rgba(119, 163, 245, 0.3);
   --radius: 16px;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -33,28 +35,61 @@ body {
   background-color: var(--dark-bg);
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Header & Navbar */
+/* --------------------------------------------------
+   1. MOUSE ILUMINADO (Glow Cursor Effect)
+   -------------------------------------------------- */
+.cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(119, 163, 245, 0.15) 0%, rgba(119, 163, 245, 0.05) 45%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.1s ease-out, opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+/* --------------------------------------------------
+   2. HEADER & NAVBAR (Transparente -> Desenfoque)
+   -------------------------------------------------- */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #444444;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: var(--glass-bg-scrolled);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 1.2rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: var(--transition);
+}
+
+.navbar.scrolled .nav-container {
+  padding: 0.8rem 1.5rem;
 }
 
 .logo-brand {
@@ -86,21 +121,24 @@ body {
   font-size: 0.95rem;
   transition: var(--transition);
   position: relative;
+  padding: 0.3rem 0;
 }
 
 .nav-item:hover, .nav-item.active {
   color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(119, 163, 245, 0.5);
 }
 
 .nav-item.active::after {
   content: '';
   position: absolute;
-  bottom: -6px;
+  bottom: -4px;
   left: 0;
   width: 100%;
   height: 2px;
   background-color: var(--accent-color);
   border-radius: 2px;
+  box-shadow: 0 0 8px var(--accent-color);
 }
 
 .header-actions {
@@ -113,7 +151,7 @@ body {
   background: var(--accent-color);
   color: #1a1a1a;
   border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1.4rem;
   border-radius: 50px;
   font-weight: 700;
   font-size: 0.9rem;
@@ -121,16 +159,16 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 12px rgba(119, 163, 245, 0.2);
+  box-shadow: var(--shadow-glow);
   transition: var(--transition);
 }
 
 .btn-ministerios:hover {
   background: var(--accent-hover);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 25px rgba(119, 163, 245, 0.6);
 }
 
-/* Menu Hamburguesa */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -146,66 +184,154 @@ body {
   transition: var(--transition);
 }
 
-/* Hero */
+/* --------------------------------------------------
+   3. HERO SLIDER (Adaptado a 14 Diapositivas)
+   -------------------------------------------------- */
 .hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #262626 0%, #333333 100%);
-  color: var(--white);
-  text-align: center;
-  padding: 6rem 1.5rem 4rem;
+  overflow: hidden;
+}
+
+.hero-slider-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+  transform: scale(1.08);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(119, 163, 245, 0.1) 0%, transparent 70%);
+  background: linear-gradient(180deg, rgba(51, 51, 51, 0.5) 0%, rgba(38, 38, 38, 0.85) 75%, rgba(51, 51, 51, 1) 100%);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  max-width: 800px;
-  z-index: 1;
+  max-width: 850px;
+  z-index: 2;
+  text-align: center;
+  padding: 8rem 1.5rem 4rem;
 }
 
 .hero-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.4rem 1.2rem;
+  background: rgba(119, 163, 245, 0.15);
+  color: var(--accent-color);
+  padding: 0.5rem 1.4rem;
   border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(119, 163, 245, 0.3);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(119, 163, 245, 0.2);
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 1.2rem;
   color: var(--white);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--text-muted);
   margin-bottom: 2.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Botones */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(38, 38, 38, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.slider-btn:hover {
+  background: var(--accent-color);
+  color: #1a1a1a;
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-glow);
+}
+
+.slider-btn.prev { left: 2rem; }
+.slider-btn.next { right: 2rem; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active, .dot:hover {
+  background: var(--accent-color);
+  width: 28px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* --------------------------------------------------
+   4. BOTONES & ELEMENTOS INTERACTIVOS
+   -------------------------------------------------- */
 .btn {
-  padding: 0.8rem 1.8rem;
+  padding: 0.85rem 2rem;
   border-radius: 12px;
   font-weight: 700;
   text-decoration: none;
@@ -214,28 +340,32 @@ body {
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   font-size: 0.95rem;
 }
 
 .btn-primary {
   background-color: var(--accent-color);
   color: #1a1a1a;
+  box-shadow: var(--shadow-glow);
 }
 
 .btn-primary:hover {
   background-color: var(--accent-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(119, 163, 245, 0.5);
 }
 
 .btn-whatsapp {
   background-color: var(--whatsapp-color);
   color: var(--white);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .btn-whatsapp:hover {
   background-color: var(--whatsapp-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
 }
 
 .btn-block {
@@ -243,7 +373,9 @@ body {
   justify-content: center;
 }
 
-/* Secciones Generales */
+/* --------------------------------------------------
+   5. SECCIONES GENERALES & TARJETAS
+   -------------------------------------------------- */
 .section {
   padding: 6rem 1.5rem;
   background-color: var(--dark-bg);
@@ -266,13 +398,14 @@ body {
 .sub-title {
   color: var(--accent-color);
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(119, 163, 245, 0.3);
 }
 
 .section-header h2 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: var(--white);
   margin-top: 0.3rem;
@@ -284,17 +417,17 @@ body {
   background-color: var(--accent-color);
   margin: 1rem auto 0;
   border-radius: 2px;
+  box-shadow: 0 0 10px var(--accent-color);
 }
 
 .section-desc {
   text-align: center;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
 }
 
-/* Cards Reuniones */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -313,26 +446,27 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(119, 163, 245, 0.2);
   border-color: var(--accent-color);
 }
 
 .card-icon {
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
   background: rgba(119, 163, 245, 0.15);
   color: var(--accent-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  font-size: 1.4rem;
+  border-radius: 14px;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  border: 1px solid rgba(119, 163, 245, 0.2);
 }
 
 .card h3 {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   margin-bottom: 0.5rem;
   color: var(--white);
 }
@@ -357,13 +491,14 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  transition: var(--transition);
 }
 
 .card-link:hover {
   text-decoration: underline;
+  transform: translateX(4px);
 }
 
-/* Agenda / Calendario */
 .section-header-flex {
   display: flex;
   justify-content: space-between;
@@ -375,7 +510,7 @@ body {
   background: none;
   border: 1px solid #555555;
   color: var(--text-muted);
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1.2rem;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
@@ -386,6 +521,7 @@ body {
   background: var(--accent-color);
   color: #1a1a1a;
   border-color: var(--accent-color);
+  box-shadow: var(--shadow-glow);
 }
 
 .calendar-controls {
@@ -396,7 +532,7 @@ body {
 
 .category-filters {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -405,7 +541,7 @@ body {
   border: none;
   background: #262626;
   color: var(--text-muted);
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.3rem;
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
@@ -418,6 +554,7 @@ body {
   background: var(--accent-color);
   color: #1a1a1a;
   border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(119, 163, 245, 0.4);
 }
 
 .events-grid {
@@ -436,19 +573,21 @@ body {
 }
 
 .event-card:hover {
+  transform: translateY(-5px);
   box-shadow: var(--shadow-md);
   border-color: var(--accent-color);
 }
 
 .event-tag {
   display: inline-block;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.7rem;
   background: rgba(119, 163, 245, 0.15);
   color: var(--accent-color);
   font-size: 0.75rem;
   font-weight: 700;
   border-radius: 6px;
   margin-bottom: 0.8rem;
+  border: 1px solid rgba(119, 163, 245, 0.2);
 }
 
 .event-title {
@@ -471,7 +610,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Ubicación & Mapa */
 .location-wrapper {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -518,7 +656,6 @@ body {
   display: block;
 }
 
-/* Contacto & Wrapper */
 .contact-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -547,7 +684,7 @@ body {
 }
 
 .info-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: var(--accent-color);
 }
@@ -590,7 +727,7 @@ body {
 }
 
 .social-btn {
-  padding: 0.6rem 1.2rem;
+  padding: 0.65rem 1.3rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
@@ -607,8 +744,8 @@ body {
 .social-btn.fb { background: #1877f2; }
 
 .social-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .contact-form {
@@ -639,7 +776,7 @@ body {
 }
 
 .form-group input, .form-group textarea, .form-group select {
-  padding: 0.8rem;
+  padding: 0.85rem;
   border: 1px solid #555555;
   background-color: var(--dark-bg);
   color: var(--white);
@@ -652,15 +789,18 @@ body {
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
   outline: none;
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(119, 163, 245, 0.2);
+  box-shadow: 0 0 0 3px rgba(119, 163, 245, 0.25);
 }
 
-/* Modales */
+/* --------------------------------------------------
+   6. MODALES
+   -------------------------------------------------- */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(38, 38, 38, 0.8);
-  backdrop-filter: blur(4px);
+  background: rgba(38, 38, 38, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -683,19 +823,20 @@ body {
   width: 90%;
   max-width: 550px;
   position: relative;
-  transform: translateY(20px);
+  transform: translateY(30px) scale(0.95);
   transition: var(--transition);
   max-height: 90vh;
   overflow-y: auto;
   color: var(--white);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .modal-card.modal-large {
-  max-width: 900px;
+  max-width: 950px;
 }
 
 .modal-overlay.active .modal-card {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .modal-close {
@@ -707,6 +848,12 @@ body {
   font-size: 1.8rem;
   cursor: pointer;
   color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--accent-color);
+  transform: rotate(90deg);
 }
 
 .modal-header {
@@ -722,13 +869,13 @@ body {
 
 .ministerios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.2rem;
 }
 
 .ministerio-item {
   background: var(--dark-bg);
-  padding: 1.2rem;
+  padding: 1.3rem;
   border-radius: 12px;
   text-align: left;
   border: 1px solid #444444;
@@ -738,13 +885,13 @@ body {
 }
 
 .ministerio-item:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
   border-color: var(--accent-color);
 }
 
 .ministerio-item i {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--accent-color);
   margin-bottom: 0.6rem;
 }
@@ -777,7 +924,9 @@ body {
   text-decoration: underline;
 }
 
-/* Footer */
+/* --------------------------------------------------
+   7. FOOTER
+   -------------------------------------------------- */
 .footer {
   background: #1f1f1f;
   color: var(--white);
@@ -819,12 +968,15 @@ body {
 
 .footer-socials a:hover {
   color: var(--accent-color);
+  transform: translateY(-3px);
 }
 
-/* Animaciones */
+/* --------------------------------------------------
+   8. ANIMACIONES FADE-IN
+   -------------------------------------------------- */
 .fade-in-up {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(35px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -833,7 +985,9 @@ body {
   transform: translateY(0);
 }
 
-/* Responsividad */
+/* --------------------------------------------------
+   9. RESPONSIVIDAD
+   -------------------------------------------------- */
 @media (max-width: 900px) {
   .contact-wrapper, .location-wrapper {
     grid-template-columns: 1fr;
@@ -841,6 +995,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .cursor-glow {
+    display: none;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -863,11 +1021,15 @@ body {
   }
 
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
 
   .hero-buttons {
     flex-direction: column;
+  }
+
+  .slider-btn {
+    display: none;
   }
 
   .form-group-row {
