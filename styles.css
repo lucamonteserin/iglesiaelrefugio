@@ -27,7 +27,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  color: #ffffff !important; /* TODOS LOS TEXTOS 100% BLANCOS SÍ O SÍ */
+  color: #ffffff !important;
 }
 
 body {
@@ -39,9 +39,7 @@ body {
   position: relative;
 }
 
-/* --------------------------------------------------
-   1. MOUSE ILUMINADO
-   -------------------------------------------------- */
+/* Mouse Iluminado */
 .cursor-glow {
   position: fixed;
   width: 400px;
@@ -55,9 +53,7 @@ body {
   mix-blend-mode: screen;
 }
 
-/* --------------------------------------------------
-   2. HEADER & NAVBAR
-   -------------------------------------------------- */
+/* Header & Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -98,9 +94,6 @@ body {
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
-  color: #ffffff !important;
-  font-weight: 800;
-  font-size: 1.35rem;
 }
 
 .brand-logo-img {
@@ -191,9 +184,7 @@ body {
   transition: var(--transition);
 }
 
-/* --------------------------------------------------
-   3. HERO SLIDER
-   -------------------------------------------------- */
+/* Hero Slider */
 .hero {
   position: relative;
   min-height: 90vh;
@@ -342,9 +333,7 @@ body {
   box-shadow: 0 0 10px var(--accent-color);
 }
 
-/* --------------------------------------------------
-   4. BOTONES & INTERACCIONES
-   -------------------------------------------------- */
+/* Botones & Interacciones */
 .btn {
   padding: 0.85rem 2rem;
   border-radius: 12px;
@@ -392,9 +381,7 @@ body {
   justify-content: center;
 }
 
-/* --------------------------------------------------
-   5. SECCIONES GENERALES & TARJETAS
-   -------------------------------------------------- */
+/* Secciones Generales & Tarjetas */
 .section {
   padding: 6rem 1.5rem;
   background-color: var(--dark-bg);
@@ -826,9 +813,7 @@ body {
   box-shadow: 0 0 0 3px rgba(119, 163, 245, 0.25);
 }
 
-/* --------------------------------------------------
-   6. MODAL MINISTERIOS FULL SCREEN (1920x1080)
-   -------------------------------------------------- */
+/* MODAL MINISTERIOS FULL SCREEN ABSOLUTO */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -864,7 +849,6 @@ body {
   box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Modal Fullscreen */
 .modal-overlay.modal-fullscreen {
   padding: 0;
 }
@@ -876,7 +860,7 @@ body {
   max-height: 100vh;
   border-radius: 0;
   border: none;
-  padding: 3rem 4rem;
+  padding: 2rem 3rem 2rem 3rem;
   display: flex;
   flex-direction: column;
   background: #1f1f1f;
@@ -908,45 +892,22 @@ body {
   transform: rotate(90deg);
 }
 
-.modal-header {
-  text-align: center;
-  margin-bottom: 2rem;
-  flex-shrink: 0;
-}
-
-.modal-header h3 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #ffffff !important;
-}
-
-.modal-header p {
-  color: #ffffff !important;
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-.modal-icon {
-  font-size: 2.5rem;
-  color: var(--accent-color) !important;
-  margin-bottom: 0.4rem;
-}
-
-/* Grid optimizada para 1920x1080 */
+/* Grid optimizada ocupando toda la pantalla */
 .ministerios-grid-fullscreen {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1.2rem;
+  gap: 1.1rem;
   overflow-y: auto;
   padding-right: 0.5rem;
   flex-grow: 1;
+  margin-top: 1rem;
   align-content: start;
 }
 
 .ministerio-item {
   background: #2a2a2a;
-  padding: 1.2rem;
-  border-radius: 14px;
+  padding: 1.1rem;
+  border-radius: 12px;
   text-align: left;
   border: 1px solid #444444;
   transition: var(--transition);
@@ -963,40 +924,40 @@ body {
 }
 
 .ministerio-item i {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: var(--accent-color) !important;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .ministerio-item h4 {
   color: #ffffff !important;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .ministerio-item p {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: #ffffff !important;
-  line-height: 1.4;
-  margin-bottom: 0.8rem;
+  line-height: 1.35;
+  margin-bottom: 0.6rem;
   opacity: 0.9;
 }
 
 .min-details {
   margin-top: auto;
-  padding-top: 0.6rem;
+  padding-top: 0.5rem;
   border-top: 1px dashed #444444;
 }
 
 .min-details p {
   margin-bottom: 0.2rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 .min-link {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--accent-color) !important;
   text-decoration: none;
@@ -1013,9 +974,7 @@ body {
   text-decoration: underline;
 }
 
-/* --------------------------------------------------
-   7. FOOTER
-   -------------------------------------------------- */
+/* Footer */
 .footer {
   background: #1f1f1f;
   color: #ffffff !important;
@@ -1067,9 +1026,7 @@ body {
   opacity: 0.8;
 }
 
-/* --------------------------------------------------
-   8. ANIMACIONES FADE-IN
-   -------------------------------------------------- */
+/* Animaciones Fade-in */
 .fade-in-up {
   opacity: 0;
   transform: translateY(35px);
@@ -1081,9 +1038,7 @@ body {
   transform: translateY(0);
 }
 
-/* --------------------------------------------------
-   9. RESPONSIVIDAD & ADAPTACIÓN PANTALLAS
-   -------------------------------------------------- */
+/* Responsividad */
 @media (max-width: 1600px) {
   .ministerios-grid-fullscreen {
     grid-template-columns: repeat(4, 1fr);
@@ -1102,7 +1057,7 @@ body {
   }
 
   .modal-card.modal-fullscreen-card {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
   }
 
   .ministerios-grid-fullscreen {
