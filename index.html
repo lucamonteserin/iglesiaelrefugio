@@ -21,7 +21,7 @@
 
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="dark-theme">
 
   <!-- Navegación Principal -->
   <header class="navbar">
@@ -42,9 +42,9 @@
       </nav>
 
       <div class="header-actions">
-        <!-- Botón de Modo Oscuro -->
+        <!-- Botón de Tema (Fijo en Modo Oscuro) -->
         <button id="btnThemeToggle" class="btn-theme-toggle" aria-label="Cambiar Tema">
-          <i class="fa-solid fa-moon" id="themeIcon"></i>
+          <i class="fa-solid fa-sun" id="themeIcon"></i>
         </button>
 
         <button id="btnMinisterios" class="btn-ministerios" aria-label="Abrir Ministerios">
@@ -458,7 +458,7 @@
     </div>
   </div>
 
-  <!-- JavaScript para Navegación Limpia y Modo Oscuro -->
+  <!-- JavaScript para Navegación Limpia y Modo Oscuro por Defecto -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Navegación limpia sin modificar la URL
@@ -493,12 +493,16 @@
         });
       });
 
-      // 2. Control de Modo Oscuro / Claro
+      // 2. Control de Modo Oscuro / Claro (Predeterminado en Oscuro)
       const themeToggleBtn = document.getElementById('btnThemeToggle');
       const themeIcon = document.getElementById('themeIcon');
       
-      const currentTheme = localStorage.getItem('theme') || 'light';
-      if (currentTheme === 'dark') {
+      // Aplicar modo oscuro por defecto si no hay preferencia previa
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.remove('dark-theme');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+      } else {
         document.body.classList.add('dark-theme');
         themeIcon.classList.replace('fa-moon', 'fa-sun');
       }
