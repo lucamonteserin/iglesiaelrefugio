@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modalAdmin) modalAdmin.classList.remove('active');
   });
 
-  // 5. Hero Slider Automático (14 Diapositivas)
+  // 5. Hero Slider Automático (10 Diapositivas locales WebP)
   const slides = document.querySelectorAll('.hero-slide');
   const dotsContainer = document.getElementById('sliderDots');
   const prevBtn = document.getElementById('prevSlide');
