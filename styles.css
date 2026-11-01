@@ -28,7 +28,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   color: #ffffff !important;
-  text-shadow: none !important; /* ELIMINADO CUALQUIER SOMBRA DE TEXTO EN TODA LA WEB */
+  text-shadow: none !important;
 }
 
 body {
@@ -261,7 +261,7 @@ body {
   line-height: 1.15;
   margin-bottom: 1.2rem;
   color: #ffffff !important;
-  text-shadow: none !important; /* Sin sombreado en el título del Hero */
+  text-shadow: none !important;
 }
 
 .hero-content p {
@@ -269,7 +269,7 @@ body {
   color: #ffffff !important;
   margin-bottom: 2.5rem;
   opacity: 0.95;
-  text-shadow: none !important; /* Sin sombreado en el párrafo del Hero */
+  text-shadow: none !important;
 }
 
 .hero-buttons {
@@ -651,147 +651,34 @@ body {
   text-shadow: none !important;
 }
 
-.location-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-.location-info {
-  background: var(--card-bg);
-  padding: 2.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid #444444;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.location-info h3 {
-  font-size: 1.3rem;
-  color: #ffffff !important;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-shadow: none !important;
-}
-
-.location-info h3 i {
-  color: var(--accent-color) !important;
-}
-
-.location-info p {
-  color: #ffffff !important;
-  font-size: 0.95rem;
-  text-shadow: none !important;
-}
-
-.map-container {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  border: 1px solid #444444;
-}
-
-.map-container iframe {
-  display: block;
-}
-
-.contact-wrapper {
+/* --------------------------------------------------
+   SECCIÓN UNIFICADA (MAPA OSCURO + CONTACTO)
+   -------------------------------------------------- */
+.contact-unified-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
   align-items: start;
 }
 
-.contact-info-cards {
+.map-box {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
-.info-card {
-  background: var(--card-bg);
-  padding: 1.5rem;
+/* Filtro CSS para convertir Google Maps a Modo Oscuro */
+.map-container.dark-map {
   border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid #444444;
-  transition: var(--transition);
-}
-
-.info-card:hover {
-  transform: translateY(-4px);
+  overflow: hidden;
   box-shadow: var(--shadow-md);
-  border-color: var(--accent-color);
-}
-
-.info-card i {
-  font-size: 1.8rem;
-}
-
-.icon-wa { color: var(--whatsapp-color) !important; }
-.icon-mail { color: var(--accent-color) !important; }
-
-.info-card h4 {
-  font-size: 1.05rem;
-  color: #ffffff !important;
-  text-shadow: none !important;
-}
-
-.info-card p {
-  font-size: 0.9rem;
-  color: #ffffff !important;
-  text-shadow: none !important;
-}
-
-.social-links-box {
-  background: var(--card-bg);
-  padding: 1.8rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
   border: 1px solid #444444;
 }
 
-.social-links-box h4 {
-  font-size: 1.05rem;
-  color: #ffffff !important;
-  margin-bottom: 1rem;
-  text-shadow: none !important;
-}
-
-.social-buttons {
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.social-btn {
-  padding: 0.65rem 1.3rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: #ffffff !important;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: var(--transition);
-  text-shadow: none !important;
-}
-
-.social-btn.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-.social-btn.yt { background: #ff0000; }
-.social-btn.fb { background: #1877f2; }
-
-.social-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+.map-container.dark-map iframe {
+  display: block;
+  filter: grayscale(100%) invert(92%) contrast(83%);
+  mix-blend-mode: luminosity;
 }
 
 .contact-form {
@@ -1006,7 +893,7 @@ body {
   text-decoration: underline;
 }
 
-/* Footer Delicado en Una Sola Línea */
+/* Footer Delicado en Una Sola Línea con Íconos Integrados */
 .footer {
   background: #1a1a1a;
   color: #ffffff !important;
@@ -1045,12 +932,12 @@ body {
 
 .footer-socials {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.4rem;
 }
 
 .footer-socials a {
   color: #ffffff !important;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: var(--transition);
   opacity: 0.7;
   text-shadow: none !important;
@@ -1088,7 +975,7 @@ body {
 }
 
 @media (max-width: 900px) {
-  .contact-wrapper, .location-wrapper {
+  .contact-unified-wrapper {
     grid-template-columns: 1fr;
   }
 
