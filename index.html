@@ -1,4 +1,273 @@
-<div class="ministerios-grid">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Refugio | Iglesia & Comunidad</title>
+
+  <!-- Favicons y Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Fuentes e Íconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navegación Principal -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo-brand">
+        <img src="logo.svg" alt="El Refugio Logo" class="brand-logo-img" onerror="this.style.display='none'">
+      </a>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#inicio" class="nav-item active">Inicio</a></li>
+          <li><a href="#nosotros" class="nav-item">Nosotros</a></li>
+          <li><a href="#reuniones" class="nav-item">Reuniones</a></li>
+          <li><a href="#actividades" class="nav-item">Calendario</a></li>
+          <li><a href="#ubicacion" class="nav-item">Ubicación</a></li>
+          <li><a href="#contacto" class="nav-item">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btnMinisterios" class="btn-ministerios" aria-label="Abrir Ministerios">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Ministerios</span>
+        </button>
+
+        <div class="hamburger" id="hamburger" aria-label="Menú móvil">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> Bienvenidos a Casa</span>
+      <h1>Un lugar de encuentro, fe y comunidad</h1>
+      <p>Descubrí un espacio para crecer espiritualmente, conectar en familia y transformar nuestro entorno en Rafaela.</p>
+      <div class="hero-buttons">
+        <a href="#reuniones" class="btn btn-primary">Horarios de Reuniones</a>
+        <a href="https://wa.me/5493492653016" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Hablanos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="section">
+    <div class="container fade-in-up">
+      <div class="section-header">
+        <span class="sub-title">Conocenos</span>
+        <h2>Sobre El Refugio</h2>
+        <div class="title-bar"></div>
+      </div>
+      <p class="section-desc">
+        Somos una comunidad viva y apasionada por compartir un mensaje de fe, esperanza y amor. 
+        En <strong>El Refugio</strong> nos enfocamos en brindar un entorno donde cada persona y familia pueda desarrollarse y acompañarse mutuamente.
+      </p>
+    </div>
+  </section>
+
+  <!-- Reuniones -->
+  <section id="reuniones" class="section bg-light">
+    <div class="container fade-in-up">
+      <div class="section-header">
+        <span class="sub-title">Nuestros Horarios</span>
+        <h2>Reuniones Principales</h2>
+        <div class="title-bar"></div>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-church"></i></div>
+          <h3>Reunión General</h3>
+          <p class="card-time"><i class="fa-regular fa-clock"></i> Domingos: 10:00 hs & 18:00 hs</p>
+          <p>Un tiempo especial de adoración, enseñanza de la Palabra y comunión para toda la familia.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+          <h3>Jóvenes (Diseño Original)</h3>
+          <p class="card-time"><i class="fa-regular fa-clock"></i> Sábados: 20:00 hs</p>
+          <p>Encuentros dinámicos con música, mensajes actuales y actividades de integración para jóvenes.</p>
+          <a href="https://instagram.com/originaldesignok" target="_blank" rel="noopener noreferrer" class="card-link"><i class="fa-brands fa-instagram"></i> @originaldesignok</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Grupos de Vida</h3>
+          <p class="card-time"><i class="fa-regular fa-clock"></i> Semanal (En casas)</p>
+          <p>Espacios reducidos para entablar amistades profundas, orar y crecer juntos durante la semana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendario de Actividades -->
+  <section id="actividades" class="section">
+    <div class="container fade-in-up">
+      <div class="section-header-flex">
+        <div>
+          <span class="sub-title">Agenda</span>
+          <h2>Calendario de Actividades</h2>
+        </div>
+        <button id="btnAdminLogin" class="btn-admin-trigger">
+          <i class="fa-solid fa-lock"></i> Panel Admin
+        </button>
+      </div>
+      <div class="title-bar"></div>
+
+      <!-- Filtros del Calendario -->
+      <div class="calendar-controls">
+        <div class="category-filters">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="General">General</button>
+          <button class="filter-btn" data-filter="Jóvenes">Jóvenes</button>
+          <button class="filter-btn" data-filter="Adolescentes">Adolescentes</button>
+          <button class="filter-btn" data-filter="Niños">Niños</button>
+          <button class="filter-btn" data-filter="Mujeres">Mujeres</button>
+          <button class="filter-btn" data-filter="Capacitaciones">Capacitaciones</button>
+        </div>
+      </div>
+
+      <!-- Grid de Eventos -->
+      <div class="events-grid" id="eventsContainer">
+        <!-- Generado dinámicamente desde JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Ubicación & Mapa -->
+  <section id="ubicacion" class="section bg-light">
+    <div class="container fade-in-up">
+      <div class="section-header">
+        <span class="sub-title">Encuéntranos</span>
+        <h2>¿Dónde Estamos?</h2>
+        <div class="title-bar"></div>
+      </div>
+
+      <div class="location-wrapper">
+        <div class="location-info">
+          <h3><i class="fa-solid fa-location-dot"></i> Nuestra Dirección</h3>
+          <p>Te esperamos para compartir juntos nuestras reuniones y actividades en Rafaela, Santa Fe.</p>
+          <a href="https://maps.app.goo.gl/HgKWCjQbd4QfRVzt6" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-diamond-turn-right"></i> Abrir en Google Maps
+          </a>
+        </div>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3411.385317765954!2d-61.4883444!3d-31.2377317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95caae4b54e7492d%3A0x8e8334bc6e8b60ab!2sEl%20Refugio!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+            width="100%" 
+            height="350" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto & Redes -->
+  <section id="contacto" class="section">
+    <div class="container fade-in-up">
+      <div class="section-header">
+        <span class="sub-title">Escribinos</span>
+        <h2>Contacto & Redes Sociales</h2>
+        <div class="title-bar"></div>
+      </div>
+
+      <div class="contact-wrapper">
+        <!-- Canales Directos -->
+        <div class="contact-info-cards">
+          <a href="https://wa.me/5493492653016" target="_blank" rel="noopener noreferrer" class="info-card">
+            <i class="fa-brands fa-whatsapp icon-wa"></i>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>+54 9 3492 65-3016</p>
+            </div>
+          </a>
+          <a href="mailto:elrefugio.rafaela@gmail.com" class="info-card">
+            <i class="fa-regular fa-envelope icon-mail"></i>
+            <div>
+              <h4>Correo Electrónico</h4>
+              <p>elrefugio.rafaela@gmail.com</p>
+            </div>
+          </a>
+          <div class="social-links-box">
+            <h4>Seguinos en nuestras redes</h4>
+            <div class="social-buttons">
+              <a href="https://www.instagram.com/elrefugiorafaela" target="_blank" rel="noopener noreferrer" class="social-btn ig"><i class="fa-brands fa-instagram"></i> Instagram</a>
+              <a href="https://www.youtube.com/@elrefugiorafaela" target="_blank" rel="noopener noreferrer" class="social-btn yt"><i class="fa-brands fa-youtube"></i> YouTube</a>
+              <a href="https://www.facebook.com/elrefugiorafaela" target="_blank" rel="noopener noreferrer" class="social-btn fb"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="nombre"><i class="fa-regular fa-user"></i> Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellido">
+          </div>
+          <div class="form-group">
+            <label for="email"><i class="fa-regular fa-envelope"></i> Correo electrónico</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="mensaje"><i class="fa-regular fa-comment"></i> Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribí tu consulta aquí..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="Logo" class="footer-logo" onerror="this.style.display='none'">
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/elrefugiorafaela" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@elrefugiorafaela" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/elrefugiorafaela" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://wa.me/5493492653016" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <p>&copy; 2026 El Refugio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL: MINISTERIOS -->
+  <div class="modal-overlay" id="modalMinisterios">
+    <div class="modal-card modal-large">
+      <button class="modal-close" id="closeMinisterios" aria-label="Cerrar modal">&times;</button>
+      <div class="modal-header">
+        <i class="fa-solid fa-shapes modal-icon"></i>
+        <h3>Nuestros Ministerios</h3>
+        <p>Espacios diseñados para el crecimiento, la comunión y el servicio</p>
+      </div>
+      <div class="ministerios-grid">
         
         <div class="ministerio-item">
           <i class="fa-solid fa-book-open-reader"></i>
@@ -62,7 +331,7 @@
 
         <div class="ministerio-item">
           <i class="fa-solid fa-seedling"></i>
-          <h4>Grupo de Preas (Pre-adolescentes)</h4>
+          <h4>Grupo de Preas</h4>
           <p>Acompañamiento y mentoría especial para preadolescentes en su transición.</p>
           <p><strong>Horarios:</strong> Sábados cada 15 días por la mañana</p>
           <p><strong>Líder:</strong> Mariela Magnien (+54 9 3492 30-0375)</p>
@@ -117,3 +386,73 @@
         </div>
 
       </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADMIN / AGREGAR ACTIVIDAD -->
+  <div class="modal-overlay" id="modalAdmin">
+    <div class="modal-card">
+      <button class="modal-close" id="closeAdmin" aria-label="Cerrar modal">&times;</button>
+
+      <!-- Paso 1: Auth -->
+      <div id="adminAuthSection">
+        <div class="modal-header">
+          <i class="fa-solid fa-shield-halved modal-icon"></i>
+          <h3>Acceso Administrador</h3>
+          <p>Ingresá la clave de gestión</p>
+        </div>
+        <form id="adminAuthForm" class="modal-form">
+          <div class="form-group">
+            <input type="password" id="adminPassword" placeholder="Contraseña de Admin (Prueba: admin123)" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+        </form>
+      </div>
+
+      <!-- Paso 2: Formulario de Nueva Actividad -->
+      <div id="adminFormSection" style="display: none;">
+        <div class="modal-header">
+          <i class="fa-solid fa-calendar-plus modal-icon"></i>
+          <h3>Nueva Actividad</h3>
+          <p>Publicá un evento en el calendario de la iglesia</p>
+        </div>
+        <form id="addEventForm" class="modal-form">
+          <div class="form-group">
+            <label for="eventTitle">Título del evento</label>
+            <input type="text" id="eventTitle" required placeholder="Ej. Encuentro Re.Creadas">
+          </div>
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="eventDate">Fecha</label>
+              <input type="date" id="eventDate" required>
+            </div>
+            <div class="form-group">
+              <label for="eventTime">Hora</label>
+              <input type="time" id="eventTime" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="eventCategory">Categoría</label>
+            <select id="eventCategory" required>
+              <option value="General">General</option>
+              <option value="Jóvenes">Jóvenes</option>
+              <option value="Adolescentes">Adolescentes</option>
+              <option value="Niños">Niños</option>
+              <option value="Mujeres">Mujeres</option>
+              <option value="Capacitaciones">Capacitaciones</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="eventDesc">Descripción</label>
+            <textarea id="eventDesc" rows="3" placeholder="Detalles de la actividad..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Guardar y Publicar</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
