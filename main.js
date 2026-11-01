@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Navbar Inteligente (Transparente a Glassmorphism con Blur al hacer Scroll)
+  // 2. Navbar Inteligente (Transparente a Blur en Scroll)
   const navbar = document.querySelector('.navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Navegación Limpia sin modificar la URL
+  // 3. Navegación Limpia sin alterar la URL
   const scrollTriggers = document.querySelectorAll('[data-scroll]');
   scrollTriggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Modales (Ministerios & Admin)
+  // 5. Modales (Ministerios Fullscreen & Admin)
   const btnMinisterios = document.getElementById('btnMinisterios');
   const modalMinisterios = document.getElementById('modalMinisterios');
   const closeMinisterios = document.getElementById('closeMinisterios');
@@ -74,18 +74,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalAdmin = document.getElementById('modalAdmin');
   const closeAdmin = document.getElementById('closeAdmin');
 
-  btnMinisterios?.addEventListener('click', () => modalMinisterios.classList.add('active'));
-  closeMinisterios?.addEventListener('click', () => modalMinisterios.classList.remove('active'));
+  btnMinisterios?.addEventListener('click', () => {
+    modalMinisterios.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo al estar full screen
+  });
+
+  closeMinisterios?.addEventListener('click', () => {
+    modalMinisterios.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
 
   btnAdminLogin?.addEventListener('click', () => modalAdmin.classList.add('active'));
   closeAdmin?.addEventListener('click', () => modalAdmin.classList.remove('active'));
 
   window.addEventListener('click', (e) => {
-    if (e.target === modalMinisterios) modalMinisterios.classList.remove('active');
+    if (e.target === modalMinisterios) {
+      modalMinisterios.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
     if (e.target === modalAdmin) modalAdmin.classList.remove('active');
   });
 
-  // 6. Hero Slider Automático e Interactivo (14 Diapositivas)
+  // 6. Hero Slider Automático (14 Diapositivas)
   const slides = document.querySelectorAll('.hero-slide');
   const dotsContainer = document.getElementById('sliderDots');
   const prevBtn = document.getElementById('prevSlide');
@@ -184,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
       : events.filter(e => e.category.toLowerCase() === filter.toLowerCase());
 
     if (filtered.length === 0) {
-      eventsContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No hay eventos programados en esta categoría.</p>`;
+      eventsContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #ffffff !important;">No hay eventos programados en esta categoría.</p>`;
       return;
     }
 
@@ -214,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderEvents();
 
-  // 8. Panel Admin (Autenticación + Guardado de Eventos)
+  // 8. Panel Admin
   const adminAuthForm = document.getElementById('adminAuthForm');
   const adminAuthSection = document.getElementById('adminAuthSection');
   const adminFormSection = document.getElementById('adminFormSection');
@@ -260,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('¡Actividad agregada exitosamente al calendario!');
   });
 
-  // 9. Animación Fade-in al hacer Scroll
+  // 9. Animación Fade-in al Scroll
   const observerOptions = { threshold: 0.1 };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
