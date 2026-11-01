@@ -1,19 +1,21 @@
 :root {
-  --primary-color: #0f172a;
-  --primary-light: #1e293b;
-  --accent-color: #6366f1;
-  --accent-hover: #4f46e5;
+  --primary-color: #333333;
+  --primary-light: #262626;
+  --accent-color: #77a3f5;
+  --accent-hover: #5b8ee9;
   --secondary-color: #f43f5e;
   --whatsapp-color: #25d366;
   --whatsapp-hover: #1da851;
-  --text-main: #334155;
-  --text-muted: #64748b;
-  --light-bg: #f8fafc;
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+  --light-bg: #262626;
+  --dark-bg: #333333;
+  --card-bg: #262626;
   --white: #ffffff;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
-  --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.1);
-  --shadow-lg: 0 20px 30px -10px rgba(0,0,0,0.15);
+  --glass-bg: rgba(51, 51, 51, 0.95);
+  --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.2);
+  --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.3);
+  --shadow-lg: 0 20px 30px -10px rgba(0,0,0,0.4);
   --radius: 16px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -28,7 +30,7 @@
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--text-main);
-  background-color: var(--white);
+  background-color: var(--dark-bg);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -42,7 +44,7 @@ body {
   z-index: 1000;
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  border-bottom: 1px solid #444444;
   transition: var(--transition);
 }
 
@@ -60,7 +62,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--white);
   font-weight: 800;
   font-size: 1.35rem;
 }
@@ -108,24 +110,24 @@ body {
 }
 
 .btn-ministerios {
-  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-  color: var(--white);
+  background: var(--accent-color);
+  color: #1a1a1a;
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 12px rgba(119, 163, 245, 0.2);
   transition: var(--transition);
 }
 
 .btn-ministerios:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
 }
 
 /* Menu Hamburguesa */
@@ -139,7 +141,7 @@ body {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background-color: var(--primary-color);
+  background-color: var(--white);
   border-radius: 3px;
   transition: var(--transition);
 }
@@ -151,7 +153,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  background: linear-gradient(135deg, #262626 0%, #333333 100%);
   color: var(--white);
   text-align: center;
   padding: 6rem 1.5rem 4rem;
@@ -160,7 +162,7 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(119, 163, 245, 0.1) 0%, transparent 70%);
 }
 
 .hero-content {
@@ -185,11 +187,12 @@ body {
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 1.2rem;
+  color: var(--white);
 }
 
 .hero-content p {
   font-size: 1.2rem;
-  color: #cbd5e1;
+  color: var(--text-muted);
   margin-bottom: 2.5rem;
 }
 
@@ -217,7 +220,7 @@ body {
 
 .btn-primary {
   background-color: var(--accent-color);
-  color: var(--white);
+  color: #1a1a1a;
 }
 
 .btn-primary:hover {
@@ -243,6 +246,7 @@ body {
 /* Secciones Generales */
 .section {
   padding: 6rem 1.5rem;
+  background-color: var(--dark-bg);
 }
 
 .bg-light {
@@ -270,7 +274,7 @@ body {
 .section-header h2 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--primary-color);
+  color: var(--white);
   margin-top: 0.3rem;
 }
 
@@ -298,11 +302,11 @@ body {
 }
 
 .card {
-  background: var(--white);
+  background: var(--card-bg);
   padding: 2.5rem 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  border: 1px solid #f1f5f9;
+  border: 1px solid #444444;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -311,12 +315,13 @@ body {
 .card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-md);
+  border-color: var(--accent-color);
 }
 
 .card-icon {
   width: 50px;
   height: 50px;
-  background: #e0e7ff;
+  background: rgba(119, 163, 245, 0.15);
   color: var(--accent-color);
   display: flex;
   align-items: center;
@@ -329,7 +334,7 @@ body {
 .card h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: var(--primary-color);
+  color: var(--white);
 }
 
 .card-time {
@@ -337,6 +342,10 @@ body {
   font-weight: 700;
   font-size: 0.9rem;
   margin-bottom: 1rem;
+}
+
+.card p {
+  color: var(--text-muted);
 }
 
 .card-link {
@@ -364,7 +373,7 @@ body {
 
 .btn-admin-trigger {
   background: none;
-  border: 1px solid var(--text-muted);
+  border: 1px solid #555555;
   color: var(--text-muted);
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -374,9 +383,9 @@ body {
 }
 
 .btn-admin-trigger:hover {
-  background: var(--primary-color);
-  color: var(--white);
-  border-color: var(--primary-color);
+  background: var(--accent-color);
+  color: #1a1a1a;
+  border-color: var(--accent-color);
 }
 
 .calendar-controls {
@@ -394,18 +403,21 @@ body {
 
 .filter-btn {
   border: none;
-  background: #f1f5f9;
+  background: #262626;
+  color: var(--text-muted);
   padding: 0.5rem 1.2rem;
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+  border: 1px solid #444444;
 }
 
 .filter-btn.active, .filter-btn:hover {
   background: var(--accent-color);
-  color: var(--white);
+  color: #1a1a1a;
+  border-color: var(--accent-color);
 }
 
 .events-grid {
@@ -415,8 +427,8 @@ body {
 }
 
 .event-card {
-  background: var(--white);
-  border: 1px solid #e2e8f0;
+  background: var(--card-bg);
+  border: 1px solid #444444;
   border-radius: var(--radius);
   padding: 1.5rem;
   position: relative;
@@ -425,12 +437,13 @@ body {
 
 .event-card:hover {
   box-shadow: var(--shadow-md);
+  border-color: var(--accent-color);
 }
 
 .event-tag {
   display: inline-block;
   padding: 0.2rem 0.6rem;
-  background: #e0e7ff;
+  background: rgba(119, 163, 245, 0.15);
   color: var(--accent-color);
   font-size: 0.75rem;
   font-weight: 700;
@@ -441,7 +454,7 @@ body {
 .event-title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--white);
   margin-bottom: 0.5rem;
 }
 
@@ -455,7 +468,7 @@ body {
 
 .event-desc {
   font-size: 0.9rem;
-  color: var(--text-main);
+  color: var(--text-muted);
 }
 
 /* Ubicación & Mapa */
@@ -467,10 +480,11 @@ body {
 }
 
 .location-info {
-  background: var(--white);
+  background: var(--card-bg);
   padding: 2.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
+  border: 1px solid #444444;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -478,7 +492,7 @@ body {
 
 .location-info h3 {
   font-size: 1.3rem;
-  color: var(--primary-color);
+  color: var(--white);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -497,7 +511,7 @@ body {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #444444;
 }
 
 .map-container iframe {
@@ -519,7 +533,7 @@ body {
 }
 
 .info-card {
-  background: var(--white);
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: var(--radius);
   display: flex;
@@ -528,13 +542,14 @@ body {
   text-decoration: none;
   color: inherit;
   box-shadow: var(--shadow-sm);
-  border: 1px solid #f1f5f9;
+  border: 1px solid #444444;
   transition: var(--transition);
 }
 
 .info-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
+  border-color: var(--accent-color);
 }
 
 .info-card i {
@@ -546,7 +561,7 @@ body {
 
 .info-card h4 {
   font-size: 1.05rem;
-  color: var(--primary-color);
+  color: var(--white);
 }
 
 .info-card p {
@@ -555,16 +570,16 @@ body {
 }
 
 .social-links-box {
-  background: var(--white);
+  background: var(--card-bg);
   padding: 1.8rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  border: 1px solid #f1f5f9;
+  border: 1px solid #444444;
 }
 
 .social-links-box h4 {
   font-size: 1.05rem;
-  color: var(--primary-color);
+  color: var(--white);
   margin-bottom: 1rem;
 }
 
@@ -597,10 +612,11 @@ body {
 }
 
 .contact-form {
-  background: var(--white);
+  background: var(--card-bg);
   padding: 2.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
+  border: 1px solid #444444;
 }
 
 .form-group {
@@ -619,12 +635,14 @@ body {
 .form-group label {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--white);
 }
 
 .form-group input, .form-group textarea, .form-group select {
   padding: 0.8rem;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #555555;
+  background-color: var(--dark-bg);
+  color: var(--white);
   border-radius: 8px;
   font-family: inherit;
   font-size: 0.95rem;
@@ -634,14 +652,14 @@ body {
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
   outline: none;
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 0 3px rgba(119, 163, 245, 0.2);
 }
 
 /* Modales */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(38, 38, 38, 0.8);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -658,7 +676,8 @@ body {
 }
 
 .modal-card {
-  background: var(--white);
+  background: var(--card-bg);
+  border: 1px solid #444444;
   border-radius: var(--radius);
   padding: 2.5rem;
   width: 90%;
@@ -668,6 +687,7 @@ body {
   transition: var(--transition);
   max-height: 90vh;
   overflow-y: auto;
+  color: var(--white);
 }
 
 .modal-card.modal-large {
@@ -707,11 +727,11 @@ body {
 }
 
 .ministerio-item {
-  background: var(--light-bg);
+  background: var(--dark-bg);
   padding: 1.2rem;
   border-radius: 12px;
   text-align: left;
-  border: 1px solid #f1f5f9;
+  border: 1px solid #444444;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -720,7 +740,7 @@ body {
 .ministerio-item:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
-  border-color: #e0e7ff;
+  border-color: var(--accent-color);
 }
 
 .ministerio-item i {
@@ -730,7 +750,7 @@ body {
 }
 
 .ministerio-item h4 {
-  color: var(--primary-color);
+  color: var(--white);
   font-size: 1.05rem;
   margin-bottom: 0.3rem;
 }
@@ -759,10 +779,11 @@ body {
 
 /* Footer */
 .footer {
-  background: var(--primary-color);
+  background: #1f1f1f;
   color: var(--white);
   padding: 3rem 1.5rem;
   text-align: center;
+  border-top: 1px solid #333333;
 }
 
 .footer-content {
@@ -778,6 +799,7 @@ body {
   gap: 0.5rem;
   font-weight: 700;
   font-size: 1.2rem;
+  color: var(--white);
 }
 
 .footer-logo {
@@ -790,13 +812,13 @@ body {
 }
 
 .footer-socials a {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 1.3rem;
   transition: var(--transition);
 }
 
 .footer-socials a:hover {
-  color: var(--white);
+  color: var(--accent-color);
 }
 
 /* Animaciones */
@@ -809,104 +831,6 @@ body {
 .fade-in-up.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ==========================================
-   MODO OSCURO FORZADO / TOTAL
-   ========================================== */
-html.dark, 
-body.dark-theme,
-html.dark body {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
-}
-
-/* Secciones y contenedores en oscuro */
-html.dark .section,
-html.dark .bg-light,
-html.dark .container,
-html.dark .card,
-html.dark .location-info,
-html.dark .info-card,
-html.dark .social-links-box,
-html.dark .contact-form,
-html.dark .modal-card,
-html.dark .ministerio-item,
-html.dark .event-card {
-  background-color: #1e293b !important;
-  color: #f8fafc !important;
-  border-color: #334155 !important;
-}
-
-/* Textos, encabezados y títulos en oscuro */
-html.dark h1, 
-html.dark h2, 
-html.dark h3, 
-html.dark h4, 
-html.dark h5, 
-html.dark h6,
-html.dark strong,
-html.dark .section-header h2,
-html.dark .card h3,
-html.dark .location-info h3,
-html.dark .info-card h4,
-html.dark .social-links-box h4,
-html.dark .event-title,
-html.dark .ministerio-item h4,
-html.dark label {
-  color: #ffffff !important;
-}
-
-/* Textos secundarios / descriptivos en oscuro */
-html.dark p,
-html.dark .section-desc,
-html.dark .event-desc,
-html.dark .ministerio-item p,
-html.dark .location-info p,
-html.dark .info-card p,
-html.dark .event-meta {
-  color: #cbd5e1 !important;
-}
-
-/* Header / Navbar en modo oscuro */
-html.dark .navbar {
-  background: rgba(15, 23, 42, 0.95) !important;
-  border-bottom-color: #334155 !important;
-}
-
-html.dark .nav-item {
-  color: #cbd5e1 !important;
-}
-
-html.dark .nav-item:hover, 
-html.dark .nav-item.active {
-  color: #818cf8 !important;
-}
-
-/* Inputs, Textareas y Selects del formulario */
-html.dark input, 
-html.dark textarea, 
-html.dark select {
-  background-color: #0f172a !important;
-  color: #ffffff !important;
-  border-color: #475569 !important;
-}
-
-html.dark input::placeholder, 
-html.dark textarea::placeholder {
-  color: #64748b !important;
-}
-
-/* Botones de filtro del calendario */
-html.dark .filter-btn {
-  background-color: #334155 !important;
-  color: #cbd5e1 !important;
-}
-
-html.dark .filter-btn.active, 
-html.dark .filter-btn:hover {
-  background-color: #6366f1 !important;
-  color: #ffffff !important;
 }
 
 /* Responsividad */
@@ -926,18 +850,12 @@ html.dark .filter-btn:hover {
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--white);
+    background: var(--dark-bg);
     flex-direction: column;
     padding: 1.5rem;
     gap: 1.2rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #444444;
     display: none;
-  }
-
-  /* Mantener fondo oscuro en móvil si html.dark está activo */
-  html.dark .nav-links {
-    background: #1e293b !important;
-    border-bottom-color: #334155 !important;
   }
 
   .nav-links.active {
