@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
       </nav>
 
       <div class="header-actions">
-        <!-- Botón de Tema (Fijo en Modo Oscuro) -->
+        <!-- Botón de Tema (Modo Oscuro) -->
         <button id="btnThemeToggle" class="btn-theme-toggle" aria-label="Cambiar Tema">
           <i class="fa-solid fa-sun" id="themeIcon"></i>
         </button>
@@ -458,7 +458,7 @@
     </div>
   </div>
 
-  <!-- JavaScript para Navegación Limpia y Modo Oscuro por Defecto -->
+  <!-- JavaScript para Navegación Limpia y Modo Oscuro -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Navegación limpia sin modificar la URL
@@ -493,23 +493,26 @@
         });
       });
 
-      // 2. Control de Modo Oscuro / Claro (Predeterminado en Oscuro)
+      // 2. Control de Modo Oscuro / Claro
       const themeToggleBtn = document.getElementById('btnThemeToggle');
       const themeIcon = document.getElementById('themeIcon');
       
-      // Aplicar modo oscuro por defecto si no hay preferencia previa
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
         document.body.classList.remove('dark-theme');
         themeIcon.classList.replace('fa-sun', 'fa-moon');
       } else {
+        document.documentElement.classList.add('dark');
         document.body.classList.add('dark-theme');
         themeIcon.classList.replace('fa-moon', 'fa-sun');
       }
 
       themeToggleBtn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
         document.body.classList.toggle('dark-theme');
-        const isDark = document.body.classList.contains('dark-theme');
+        
+        const isDark = document.documentElement.classList.contains('dark');
 
         if (isDark) {
           themeIcon.classList.replace('fa-moon', 'fa-sun');
