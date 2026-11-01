@@ -28,6 +28,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   color: #ffffff !important;
+  text-shadow: none !important; /* ELIMINADO CUALQUIER SOMBRA DE TEXTO EN TODA LA WEB */
 }
 
 body {
@@ -37,6 +38,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  text-shadow: none !important;
 }
 
 /* Mouse Iluminado */
@@ -116,12 +118,13 @@ body {
   position: relative;
   padding: 0.3rem 0;
   opacity: 0.9;
+  text-shadow: none !important;
 }
 
 .nav-item:hover, .nav-item.active {
   color: var(--accent-color) !important;
   opacity: 1;
-  text-shadow: 0 0 10px rgba(119, 163, 245, 0.5);
+  text-shadow: none !important;
 }
 
 .nav-item.active::after {
@@ -156,10 +159,12 @@ body {
   gap: 0.5rem;
   box-shadow: var(--shadow-glow);
   transition: var(--transition);
+  text-shadow: none !important;
 }
 
 .btn-ministerios * {
   color: #1a1a1a !important;
+  text-shadow: none !important;
 }
 
 .btn-ministerios:hover {
@@ -243,6 +248,7 @@ body {
   border: 1px solid rgba(119, 163, 245, 0.3);
   backdrop-filter: blur(8px);
   box-shadow: 0 0 15px rgba(119, 163, 245, 0.2);
+  text-shadow: none !important;
 }
 
 .hero-badge i {
@@ -255,15 +261,15 @@ body {
   line-height: 1.15;
   margin-bottom: 1.2rem;
   color: #ffffff !important;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  text-shadow: none !important; /* Sin sombreado en el título del Hero */
 }
 
 .hero-content p {
   font-size: 1.25rem;
   color: #ffffff !important;
   margin-bottom: 2.5rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
   opacity: 0.95;
+  text-shadow: none !important; /* Sin sombreado en el párrafo del Hero */
 }
 
 .hero-buttons {
@@ -345,6 +351,7 @@ body {
   align-items: center;
   gap: 0.6rem;
   font-size: 0.95rem;
+  text-shadow: none !important;
 }
 
 .btn-primary {
@@ -355,6 +362,7 @@ body {
 
 .btn-primary * {
   color: #1a1a1a !important;
+  text-shadow: none !important;
 }
 
 .btn-primary:hover {
@@ -406,7 +414,7 @@ body {
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(119, 163, 245, 0.3);
+  text-shadow: none !important;
 }
 
 .section-header h2 {
@@ -414,6 +422,7 @@ body {
   font-weight: 800;
   color: #ffffff !important;
   margin-top: 0.3rem;
+  text-shadow: none !important;
 }
 
 .title-bar {
@@ -431,6 +440,7 @@ body {
   margin: 0 auto;
   font-size: 1.15rem;
   color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .cards-grid {
@@ -477,6 +487,7 @@ body {
   font-size: 1.35rem;
   margin-bottom: 0.5rem;
   color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .card-time {
@@ -484,6 +495,7 @@ body {
   font-weight: 700;
   font-size: 0.9rem;
   margin-bottom: 1rem;
+  text-shadow: none !important;
 }
 
 .card-time i {
@@ -492,6 +504,7 @@ body {
 
 .card p {
   color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .card-link {
@@ -504,6 +517,7 @@ body {
   align-items: center;
   gap: 0.4rem;
   transition: var(--transition);
+  text-shadow: none !important;
 }
 
 .card-link i {
@@ -531,6 +545,7 @@ body {
   cursor: pointer;
   font-weight: 600;
   transition: var(--transition);
+  text-shadow: none !important;
 }
 
 .btn-admin-trigger:hover {
@@ -568,6 +583,7 @@ body {
   cursor: pointer;
   transition: var(--transition);
   border: 1px solid #444444;
+  text-shadow: none !important;
 }
 
 .filter-btn.active, .filter-btn:hover {
@@ -608,6 +624,7 @@ body {
   border-radius: 6px;
   margin-bottom: 0.8rem;
   border: 1px solid rgba(119, 163, 245, 0.2);
+  text-shadow: none !important;
 }
 
 .event-title {
@@ -615,6 +632,7 @@ body {
   font-weight: 700;
   color: #ffffff !important;
   margin-bottom: 0.5rem;
+  text-shadow: none !important;
 }
 
 .event-meta {
@@ -624,11 +642,13 @@ body {
   display: flex;
   gap: 1rem;
   opacity: 0.9;
+  text-shadow: none !important;
 }
 
 .event-desc {
   font-size: 0.9rem;
   color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .location-wrapper {
@@ -655,6 +675,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  text-shadow: none !important;
 }
 
 .location-info h3 i {
@@ -664,6 +685,7 @@ body {
 .location-info p {
   color: #ffffff !important;
   font-size: 0.95rem;
+  text-shadow: none !important;
 }
 
 .map-container {
@@ -719,11 +741,13 @@ body {
 .info-card h4 {
   font-size: 1.05rem;
   color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .info-card p {
   font-size: 0.9rem;
   color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .social-links-box {
@@ -738,6 +762,7 @@ body {
   font-size: 1.05rem;
   color: #ffffff !important;
   margin-bottom: 1rem;
+  text-shadow: none !important;
 }
 
 .social-buttons {
@@ -757,6 +782,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   transition: var(--transition);
+  text-shadow: none !important;
 }
 
 .social-btn.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
@@ -793,6 +819,7 @@ body {
   font-size: 0.9rem;
   font-weight: 700;
   color: #ffffff !important;
+  text-shadow: none !important;
 }
 
 .form-group input, .form-group textarea, .form-group select {
@@ -804,6 +831,7 @@ body {
   font-family: inherit;
   font-size: 0.95rem;
   transition: var(--transition);
+  text-shadow: none !important;
 }
 
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
@@ -882,6 +910,7 @@ body {
   justify-content: center;
   transition: var(--transition);
   z-index: 10;
+  text-shadow: none !important;
 }
 
 .modal-close:hover {
@@ -933,6 +962,7 @@ body {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 0.3rem;
+  text-shadow: none !important;
 }
 
 .ministerio-item p {
@@ -941,6 +971,7 @@ body {
   line-height: 1.35;
   margin-bottom: 0.6rem;
   opacity: 0.9;
+  text-shadow: none !important;
 }
 
 .min-details {
@@ -952,6 +983,7 @@ body {
 .min-details p {
   margin-bottom: 0.2rem;
   font-size: 0.78rem;
+  text-shadow: none !important;
 }
 
 .min-link {
@@ -963,6 +995,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  text-shadow: none !important;
 }
 
 .min-link i {
@@ -973,9 +1006,7 @@ body {
   text-decoration: underline;
 }
 
-/* --------------------------------------------------
-   FOOTER DELICADO EN UNA SOLA LÍNEA
-   -------------------------------------------------- */
+/* Footer Delicado en Una Sola Línea */
 .footer {
   background: #1a1a1a;
   color: #ffffff !important;
@@ -1009,6 +1040,7 @@ body {
   font-size: 0.85rem;
   color: #ffffff !important;
   opacity: 0.7;
+  text-shadow: none !important;
 }
 
 .footer-socials {
@@ -1021,6 +1053,7 @@ body {
   font-size: 1.1rem;
   transition: var(--transition);
   opacity: 0.7;
+  text-shadow: none !important;
 }
 
 .footer-socials a:hover {
