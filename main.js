@@ -1,21 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Menú Hamburguesa Móvil
+  // 1. Cursor Iluminado Interactivo
+  const cursorGlow = document.getElementById('cursorGlow');
+  if (cursorGlow) {
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    });
+  }
+
+  // 2. Navbar Inteligente (Transparente a Glassmorphism con Blur al hacer Scroll)
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
+  });
+
+  // 3. Navegación Limpia sin modificar la URL
+  const scrollTriggers = document.querySelectorAll('[data-scroll]');
+  scrollTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = trigger.getAttribute('data-scroll');
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+        if (trigger.classList.contains('nav-item')) {
+          trigger.classList.add('active');
+        }
+
+        const navMenu = document.querySelector('.nav-links');
+        const hamburger = document.getElementById('hamburger');
+        if (navMenu && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          hamburger.classList.remove('active');
+        }
+      }
+    });
+  });
+
+  // 4. Menú Hamburguesa Móvil
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
 
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
     });
 
     document.querySelectorAll('.nav-item').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
       });
     });
   }
 
-  // 2. Modales (Ministerios & Admin)
+  // 5. Modales (Ministerios & Admin)
   const btnMinisterios = document.getElementById('btnMinisterios');
   const modalMinisterios = document.getElementById('modalMinisterios');
   const closeMinisterios = document.getElementById('closeMinisterios');
@@ -24,21 +74,74 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalAdmin = document.getElementById('modalAdmin');
   const closeAdmin = document.getElementById('closeAdmin');
 
-  // Abrir y Cerrar Ministerios
   btnMinisterios?.addEventListener('click', () => modalMinisterios.classList.add('active'));
   closeMinisterios?.addEventListener('click', () => modalMinisterios.classList.remove('active'));
 
-  // Abrir y Cerrar Admin
   btnAdminLogin?.addEventListener('click', () => modalAdmin.classList.add('active'));
   closeAdmin?.addEventListener('click', () => modalAdmin.classList.remove('active'));
 
-  // Cerrar Modales dando clic afuera
   window.addEventListener('click', (e) => {
     if (e.target === modalMinisterios) modalMinisterios.classList.remove('active');
     if (e.target === modalAdmin) modalAdmin.classList.remove('active');
   });
 
-  // 3. Sistema de Calendario / Eventos
+  // 6. Hero Slider Automático e Interactivo (14 Diapositivas)
+  const slides = document.querySelectorAll('.hero-slide');
+  const dotsContainer = document.getElementById('sliderDots');
+  const prevBtn = document.getElementById('prevSlide');
+  const nextBtn = document.getElementById('nextSlide');
+  let currentSlide = 0;
+  let slideInterval;
+
+  if (slides.length > 0 && dotsContainer) {
+    slides.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetInterval();
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function goToSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlideFunc() {
+      goToSlide(currentSlide + 1);
+    }
+
+    nextBtn?.addEventListener('click', () => {
+      nextSlideFunc();
+      resetInterval();
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      goToSlide(currentSlide - 1);
+      resetInterval();
+    });
+
+    function startInterval() {
+      slideInterval = setInterval(nextSlideFunc, 6000);
+    }
+
+    function resetInterval() {
+      clearInterval(slideInterval);
+      startInterval();
+    }
+
+    startInterval();
+  }
+
+  // 7. Sistema de Calendario / Eventos
   let initialEvents = [
     {
       id: 1,
@@ -66,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // Cargar eventos guardados en localStorage si existen
   const savedEvents = localStorage.getItem('refugio_events');
   let events = savedEvents ? JSON.parse(savedEvents) : initialEvents;
 
@@ -102,7 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filtrado
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
@@ -113,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderEvents();
 
-  // 4. Panel Admin (Autenticación + Guardado de Eventos)
+  // 8. Panel Admin (Autenticación + Guardado de Eventos)
   const adminAuthForm = document.getElementById('adminAuthForm');
   const adminAuthSection = document.getElementById('adminAuthSection');
   const adminFormSection = document.getElementById('adminFormSection');
@@ -123,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const pass = document.getElementById('adminPassword').value;
     
-    // Contraseña por defecto: admin123
     if (pass === 'admin123') {
       adminAuthSection.style.display = 'none';
       adminFormSection.style.display = 'block';
@@ -151,7 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
     addEventForm.reset();
     modalAdmin.classList.remove('active');
     
-    // Resetear formulario admin para el próximo ingreso
     setTimeout(() => {
       adminAuthSection.style.display = 'block';
       adminFormSection.style.display = 'none';
@@ -161,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('¡Actividad agregada exitosamente al calendario!');
   });
 
-  // 5. Animación Fade-in al hacer Scroll
+  // 9. Animación Fade-in al hacer Scroll
   const observerOptions = { threshold: 0.1 };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -173,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-  // 6. Formulario de Contacto
+  // 10. Formulario de Contacto
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
