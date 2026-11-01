@@ -31,6 +31,7 @@
     <div class="nav-container">
       <a href="javascript:void(0)" data-scroll="inicio" class="logo-brand">
         <img src="logo.svg" alt="El Refugio Logo" class="brand-logo-img" onerror="this.style.display='none'">
+        <span>El Refugio</span>
       </a>
 
       <nav class="nav-menu">
@@ -59,7 +60,7 @@
     </div>
   </header>
 
-  <!-- Hero Section con Slider (14 imágenes para 14 ministerios) -->
+  <!-- Hero Section con Slider (14 imágenes) -->
   <section id="inicio" class="hero">
     <div class="hero-slider-container" id="heroSlider">
       <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1600&q=80');"></div>
@@ -128,7 +129,7 @@
           <p>Un tiempo especial de adoración, enseñanza de la Palabra y comunión para toda la familia.</p>
         </div>
         <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+          <div class="card-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
           <h3>Jóvenes (Diseño Original)</h3>
           <p class="card-time"><i class="fa-regular fa-clock"></i> Sábados: 20:00 hs</p>
           <p>Encuentros dinámicos con música, mensajes actuales y actividades de integración para jóvenes.</p>
@@ -178,7 +179,7 @@
     </div>
   </section>
 
-  <!-- Sección Ubicación & Mapa -->
+  <!-- Ubicación & Mapa -->
   <section id="ubicacion" class="section bg-light">
     <div class="container fade-in-up">
       <div class="section-header">
@@ -220,7 +221,6 @@
       </div>
 
       <div class="contact-wrapper">
-        <!-- Canales Directos -->
         <div class="contact-info-cards">
           <a href="https://wa.me/5493492653016" target="_blank" rel="noopener noreferrer" class="info-card">
             <i class="fa-brands fa-whatsapp icon-wa"></i>
@@ -246,7 +246,6 @@
           </div>
         </div>
 
-        <!-- Formulario -->
         <form class="contact-form" id="contactForm">
           <div class="form-group">
             <label for="nombre"><i class="fa-regular fa-user"></i> Nombre completo</label>
@@ -284,40 +283,47 @@
     </div>
   </footer>
 
-  <!-- MODAL: MINISTERIOS (14 Ministerios completos con líderes y contactos) -->
-  <div class="modal-overlay" id="modalMinisterios">
-    <div class="modal-card modal-large">
+  <!-- MODAL: MINISTERIOS FULL SCREEN (14 Ministerios) -->
+  <div class="modal-overlay modal-fullscreen" id="modalMinisterios">
+    <div class="modal-card modal-fullscreen-card">
       <button class="modal-close" id="closeMinisterios" aria-label="Cerrar modal">&times;</button>
       <div class="modal-header">
         <i class="fa-solid fa-shapes modal-icon"></i>
         <h3>Nuestros Ministerios</h3>
         <p>Espacios diseñados para el crecimiento, la comunión y el servicio</p>
       </div>
-      <div class="ministerios-grid">
+
+      <div class="ministerios-grid-fullscreen">
         
         <div class="ministerio-item">
           <i class="fa-solid fa-book-open-reader"></i>
           <h4>Estudio Bíblico</h4>
           <p>Profundizamos en las Escrituras para conocer la verdad, doctrina y aplicación práctica para la vida diaria.</p>
-          <p><strong>Horarios:</strong> Miércoles a las 20:00 hs</p>
-          <p><strong>Líder:</strong> Carlos Mangiaut (+54 9 3492 62-7992)</p>
-        </div>
-
-        <div class="ministerio-item">
-          <i class="fa-solid fa-hands-praying"></i>
-          <h4>Casa de Oración</h4>
-          <p>Un espacio dedicado a interceder por las necesidades de la iglesia, la ciudad y las familias en unidad.</p>
-          <p><strong>Horarios:</strong> Martes de 20:00 hs a 21:20 hs</p>
-          <p><strong>Líder:</strong> Maricel Altare (+54 9 3492 30-1198)</p>
-          <a href="https://instagram.com/cdo.raf" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @cdo.raf</a>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Miércoles 20:00 hs</p>
+            <p><strong>Líder:</strong> Carlos Mangiaut (+54 9 3492 62-7992)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-fire-flame-curved"></i>
+          <h4>Casa de Oración</h4>
+          <p>Un espacio dedicado a interceder por las necesidades de la iglesia, la ciudad y las familias en unidad.</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Martes 20:00 a 21:20 hs</p>
+            <p><strong>Líder:</strong> Maricel Altare (+54 9 3492 30-1198)</p>
+          </div>
+          <a href="https://instagram.com/cdo.raf" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @cdo.raf</a>
+        </div>
+
+        <div class="ministerio-item">
+          <i class="fa-solid fa-bolt-lightning"></i>
           <h4>Diseño Original (Jóvenes)</h4>
           <p>Movimiento de jóvenes conectados con su propósito, disfrutando de alabanza, amistad y dinamismo.</p>
-          <p><strong>Horarios:</strong> Sábados cada 15 días por la noche</p>
-          <p><strong>Líder:</strong> Alejandro Denasio (+54 9 3492 20-6427)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Sábados c/15 días (Noche)</p>
+            <p><strong>Líder:</strong> Alejandro Denasio (+54 9 3492 20-6427)</p>
+          </div>
           <a href="https://instagram.com/originaldesignok" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @originaldesignok</a>
         </div>
 
@@ -325,8 +331,10 @@
           <i class="fa-solid fa-user-group"></i>
           <h4>Adolescentes</h4>
           <p>Espacio propio para chicos en etapa escolar secundaria, compartiendo valores, charlas y diversión.</p>
-          <p><strong>Horarios:</strong> Sábados cada 15 días por la noche</p>
-          <p><strong>Líder:</strong> Eliana Bertone (+54 9 3492 50-8407)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Sábados c/15 días (Noche)</p>
+            <p><strong>Líder:</strong> Eliana Bertone (+54 9 3492 50-8407)</p>
+          </div>
           <a href="https://instagram.com/adosdelrefugio" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @adosdelrefugio</a>
         </div>
 
@@ -334,8 +342,10 @@
           <i class="fa-solid fa-person-breastfeeding"></i>
           <h4>Mujeres (Re.Creadas)</h4>
           <p>Encuentros de edificación, talleres y comunión para el desarrollo integral de las mujeres.</p>
-          <p><strong>Horarios:</strong> Actividades especiales</p>
-          <p><strong>Líder:</strong> Zaida Bertone (+54 9 3492 69-2584)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Actividades especiales</p>
+            <p><strong>Líder:</strong> Zaida Bertone (+54 9 3492 69-2584)</p>
+          </div>
           <a href="https://instagram.com/re.creadas" target="_blank" rel="noopener noreferrer" class="min-link"><i class="fa-brands fa-instagram"></i> @re.creadas</a>
         </div>
 
@@ -343,72 +353,90 @@
           <i class="fa-solid fa-child-reaching"></i>
           <h4>Refugio Kids</h4>
           <p>Enseñanza bíblica creativa, juegos y dinámicas adaptadas para que los más chicos vivan su fe.</p>
-          <p><strong>Horarios:</strong> Domingos en simultáneo con reunión general</p>
-          <p><strong>Líder:</strong> Andrea Torres (+54 9 3492 52-4301)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Domingos en simultáneo</p>
+            <p><strong>Líder:</strong> Andrea Torres (+54 9 3492 52-4301)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-church"></i>
           <h4>Reuniones Generales</h4>
           <p>Nuestros encuentros principales de adoración congregacional, alabanza y mensaje central.</p>
-          <p><strong>Horarios:</strong> Sábados 19:30 hs | Domingos 10:30 hs y 19:30 hs[cite: 2]</p>
-          <p><strong>Líder:</strong> Henry Altare (+54 9 3492 65-8189)[cite: 2]</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Sáb 19:30 | Dom 10:30 & 19:30</p>
+            <p><strong>Líder:</strong> Henry Altare (+54 9 3492 65-8189)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-seedling"></i>
           <h4>Grupo de Preas</h4>
           <p>Acompañamiento y mentoría especial para preadolescentes en su transición.</p>
-          <p><strong>Horarios:</strong> Sábados cada 15 días por la mañana</p>
-          <p><strong>Líder:</strong> Mariela Magnien (+54 9 3492 30-0375)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Sábados c/15 días (Mañana)</p>
+            <p><strong>Líder:</strong> Mariela Magnien (+54 9 3492 30-0375)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-hands-holding-child"></i>
           <h4>Adultos Mayores</h4>
           <p>Un espacio de contención, valor, compañía sabia y atención afectiva para nuestros mayores.</p>
-          <p><strong>Horarios:</strong> Viernes por la tarde</p>
-          <p><strong>Líder:</strong> Mariano Corica (+54 9 3492 59-7829)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Viernes por la tarde</p>
+            <p><strong>Líder:</strong> Mariano Corica (+54 9 3492 59-7829)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-house-chimney-user"></i>
           <h4>Grupos de Vida</h4>
           <p>Comunidades hogareñas semanales para compartir la fe de cerca, apoyarnos y orar unos por otros.</p>
-          <p><strong>Horarios:</strong> Días y horarios que varían según grupo</p>
-          <p><strong>Líder:</strong> Facundo Curbelo (+54 9 3492 61-8302)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Días según grupo</p>
+            <p><strong>Líder:</strong> Facundo Curbelo (+54 9 3492 61-8302)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-compass"></i>
           <h4>Alpha</h4>
           <p>Espacio de conversación abierta y exploración sobre la fe, la vida y el significado del cristianismo.</p>
-          <p><strong>Horarios:</strong> Días y horarios a consultar</p>
-          <p><strong>Líder:</strong> Alejandro Chiavassa (+54 9 3492 60-2513)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Días a consultar</p>
+            <p><strong>Líder:</strong> Alejandro Chiavassa (+54 9 3492 60-2513)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-heart-circle-bolt"></i>
           <h4>Matrimonios</h4>
           <p>Encuentros y actividades orientadas al fortalecimiento del lazo conyugal y familiar.</p>
-          <p><strong>Horarios:</strong> Actividades especiales</p>
-          <p><strong>Líder:</strong> Alberto Trovarelli (+54 9 3492 65-3305)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Actividades especiales</p>
+            <p><strong>Líder:</strong> Alberto Trovarelli (+54 9 3492 65-3305)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-hand-holding-heart"></i>
           <h4>Servicio Social</h4>
           <p>Acciones de ayuda comunitaria y asistencia práctica a quienes más lo necesitan.</p>
-          <p><strong>Horarios:</strong> Actividades especiales</p>
-          <p><strong>Líder:</strong> Carina Gramaglia (+54 9 3492 59-5300)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Actividades especiales</p>
+            <p><strong>Líder:</strong> Carina Gramaglia (+54 9 3492 59-5300)</p>
+          </div>
         </div>
 
         <div class="ministerio-item">
           <i class="fa-solid fa-hands-holding"></i>
           <h4>Madres que Oran</h4>
           <p>Grupos dedicados a interceder por los hijos, familias y futuras generaciones.</p>
-          <p><strong>Horarios:</strong> Días y horarios que varían según grupo</p>
-          <p><strong>Líder:</strong> Carina Gramaglia (+54 9 3492 59-5300)</p>
+          <div class="min-details">
+            <p><strong>Horario:</strong> Días según grupo</p>
+            <p><strong>Líder:</strong> Carina Gramaglia (+54 9 3492 59-5300)</p>
+          </div>
         </div>
 
       </div>
