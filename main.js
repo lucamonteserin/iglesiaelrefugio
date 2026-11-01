@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnMinisterios?.addEventListener('click', () => {
     modalMinisterios.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo al estar full screen
+    document.body.style.overflow = 'hidden';
   });
 
   closeMinisterios?.addEventListener('click', () => {
