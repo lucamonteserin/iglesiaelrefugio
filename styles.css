@@ -145,7 +145,7 @@ body {
   box-shadow: 0 0 25px rgba(119, 163, 245, 0.6);
 }
 
-/* Hamburguesa Visible Siempre (Escritorio y Móvil) */
+/* Hamburguesa Visible Siempre */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -358,7 +358,7 @@ body {
   box-shadow: 0 0 10px var(--accent-color);
 }
 
-/* Botones & Interacciones (Todos los textos en blanco) */
+/* Botones & Interacciones */
 .btn {
   padding: 0.85rem 2rem;
   border-radius: 12px;
